@@ -1,0 +1,327 @@
+.ProductListDifferentSection {
+    width: 30%;
+}
+.FilterMainContainer {
+    background-color: #EDD8C3;
+    padding: 30px;
+    width: 100%;
+}
+.ProductPageSearch {
+    background: transparent;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.403);
+}
+
+.ProductPageSearch input {
+    background: transparent;
+    color: black;
+    padding: 5px;
+    border: none;
+    font-family: "Marcellus", serif;
+    font-weight: 400;
+    font-style: normal;
+    width: 90%;
+}
+
+.ProductPageSearch i.fa-solid.fa-magnifying-glass {
+    background: transparent;
+    cursor: pointer;
+}
+
+
+		<!-- PRODUCT CATEGORY SECTION -->
+
+.ProductCategoriesMainContainer {
+    background: transparent;
+}
+.ProductCategoryTitle {
+    background: transparent;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.ProductCategoryTitle h4 {
+    background: transparent;
+}
+		
+	
+		<!-- SHOP BY SECTION -->
+
+.ShopForMainContainer {
+    background: transparent;
+    padding: 50px 0px;
+}
+.ShopForTitle h4 {
+    background: transparent;
+}
+.ShopForTitle {
+    background: transparent;
+    padding-bottom: 30px;
+}
+.ShopByBTNs {
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+
+.ShopByBTNs a {
+    background: transparent;
+    text-decoration: none;
+    color: white;
+    background-color: #000000;
+    cursor: pointer;
+}
+
+
+		 <!-- BRAND SECTION -->
+
+.ProductBrandMainContainer {
+    background: transparent;
+}
+.ProductBrandTitle {
+    background: transparent;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.ProductBrandTitle h4 {
+    background: transparent;
+}
+.ProductBrandCheckBox form label {
+    background: transparent;
+    font-family: "Marcellus", serif;
+    font-weight: 400;
+    font-style: normal;
+    padding-left: 20px;
+}
+
+.ProductBrandCheckBox {
+    background: transparent;
+}
+.PearlChain {
+    background: transparent;
+    border-bottom: 1px solid #A4A4A4;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+.Earrings {
+    background: transparent;
+    border-bottom: 1px solid #A4A4A4;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+.Rings {
+    background: transparent;
+    border-bottom: 1px solid #A4A4A4;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+.Chain {
+    background: transparent;
+    border-bottom: 1px solid #A4A4A4;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+.Necklace {
+    background: transparent;
+    border-bottom: 1px solid #A4A4A4;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+.Bracelet {
+    background: transparent;
+    border-bottom: 1px solid #A4A4A4;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+		<!-- SHOP BY SECTION -->
+
+.ShopForMainContainer {
+    background: transparent;
+    padding: 50px 0px;
+}
+.ShopForTitle h4 {
+    background: transparent;
+}
+.ShopForTitle {
+    background: transparent;
+    padding-bottom: 30px;
+}
+.ShopByBTNs {
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+
+.ShopByBTNs a {
+    background: transparent;
+    text-decoration: none;
+    color: white;
+    background-color: #000000;
+    cursor: pointer;
+}
+a.RING {
+    padding: 7px 30px;
+    font-family: "Marcellus", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 12px;
+}
+
+a.EARRINGS {
+    padding: 7px 13px;
+    font-family: "Marcellus", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 12px;
+}
+a.BRACELETS {
+    padding: 7px 13px;
+    font-family: "Marcellus", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 12px;
+}
+a.SLIVER {
+    padding: 7px 25px;
+    font-family: "Marcellus", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 12px;
+}
+
+a.GOLD {
+    padding: 7px 25px;
+    font-family: "Marcellus", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 12px;
+}
+
+a.PLATINUM {
+    padding: 7px 14px;
+    font-family: "Marcellus", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 12px;
+}
+
+		 <!-- BRAND SECTION -->
+
+.ProductBrandMainContainer {
+    background: transparent;
+}
+.ProductBrandTitle {
+    background: transparent;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.ProductBrandTitle h4 {
+    background: transparent;
+}
+.ProductBrandCheckBox form label {
+    background: transparent;
+    font-family: "Marcellus", serif;
+    font-weight: 400;
+    font-style: normal;
+    padding-left: 20px;
+}
+
+.ProductBrandCheckBox {
+    background: transparent;
+}
+
+
+		<!-- COLLECTION SECTION-->
+
+.ProductCollectionMainContainer {
+    background: transparent;
+}
+.ProductCollectionTitle {
+    background: transparent;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.ProductCollectionTitle h4 {
+    background: transparent;
+}
+
+
+		 <!-- FILTER BY PRICE SECTION -->
+
+.FilterPriceMainContainer {
+    background: transparent;
+}
+.ProductCollectionTitle {
+    background: transparent;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.ProductCollectionTitle h4 {
+    background: transparent;
+}
+.RangeBarContainer {
+    width: 100%;
+    background: transparent;
+}
+.RangePriceText {
+    background: transparent;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #A4A4A4;
+}
+.FliterBTN {
+    background: transparent;
+    margin-top: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #A4A4A4;
+}
+
+.FliterBTN button {
+    padding: 5px 30px;
+    font-family: "Marcellus", serif;
+    font-weight: 400;
+    font-style: normal;
+    cursor: pointer;
+}
+.ClearFilterBTN {
+    background: transparent;
+    margin-top: 30px;
+    padding-bottom: 30px;
+}
+
+.ClearFilterBTN button {
+    padding: 9px 25px;
+    font-family: "Marcellus", serif;
+    font-weight: 400;
+    font-style: normal;
+    cursor: pointer;
+    background-color: transparent;
+    border: 1px solid #000000;
+    color: #000000;
+}
