@@ -62,11 +62,22 @@ Route::get('/admin/contact-inquiries',[AdminController::class,'contact_inquiries
 // catalog-requests route
 Route::get('/admin/catalog-requests',[AdminController::class,'catalog_requests']);
 
+// admin
 Route::get('/admin', [AuthController::class, 'index'])->name('admin');
 // Route::get('/login', [AuthController::class, 'index'])->name('login');
 Route::post('admin-login', [AuthController::class, 'adminLogin'])->name('admin_login');
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
+
+
+
+
+
+// Admin Profile settings route
+Route::get('/admin/settings',[AdminController::class,'adminsetting']);
+
+// Admin Profile view route
+Route::get('/admin/view-profile',[AdminController::class,'admin_view_profile']);
 
 
 

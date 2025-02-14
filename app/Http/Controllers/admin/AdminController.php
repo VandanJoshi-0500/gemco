@@ -77,4 +77,15 @@ class AdminController extends Controller
     {
         return view('admin.catalog-requests.index');
     }
+
+    // admin profile settings
+    public function adminsetting()
+    {
+        return view('admin.settings.template');
+    }
+    // admin profile view
+    public function admin_view_profile()
+    {
+        return view('admin.profile.view_profile');
+    }
 }
