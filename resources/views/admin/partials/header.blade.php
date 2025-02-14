@@ -49,12 +49,12 @@
                     <!-- Topbar Brand Logo -->
                     <div class="logo-topbar">
                         <!-- Logo light -->
-                        <a href="#" class="logo-light">
+                        <a href="{{url('/admin/dashboard')}}" class="logo-light">
                             <span class="logo-lg">
-                                <img src="#" alt="logo">
+                                <img src="{{url('frontend/Assets/Logo.png')}}" alt="logo">
                             </span>
                             <span class="logo-sm">
-                                <img src="#" alt="small logo">
+                                <img src="{{url('frontend/Assets/google.png')}}" alt="small logo">
                             </span>
                         </a>
 

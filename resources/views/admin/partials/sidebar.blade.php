@@ -1,7 +1,7 @@
 <div class="leftside-menu">
 
     <!-- Brand Logo Light -->
-    <a href="#" class="logo logo-light">
+    <a href="{{url('/admin/dashboard')}}" class="logo logo-light">
         <span class="logo-lg">
             <img src="{{url('frontend/Assets/Logo.png')}}" alt="logo">
         </span>
@@ -11,12 +11,12 @@
     </a>
 
     <!-- Brand Logo Dark -->
-    <a href="#" class="logo logo-dark">
+    <a href="{{url('/admin/dashboard')}}" class="logo logo-dark">
         <span class="logo-lg">
-            <img src="#" alt="dark logo">
+            <img src="{{url('frontend/Assets/google.png')}}" alt="dark logo">
         </span>
         <span class="logo-sm">
-            <img src="#" alt="small logo">
+            <img src="{{url('frontend/Assets/google.png')}}" alt="small logo">
         </span>
     </a>
 
@@ -26,7 +26,7 @@
         <ul class="side-nav">
 
             <li class="side-nav-item">
-                <a href="#" class="side-nav-link">
+                <a href="{{url('/admin/dashboard')}}" class="side-nav-link">
                     <i class="ri-dashboard-3-line"></i>
                     {{-- <span class="badge bg-success float-end">9+</span> --}}
                     <span> Dashboard </span>
@@ -42,10 +42,10 @@
                 <div class="collapse" id="sidebarPages1">
                     <ul class="side-nav-second-level">
                         <li>
-                            <a href="#">Manage Customer</a>
+                            <a href="{{url('/admin/customer')}}">Manage Customer</a>
                         </li>
                         <li>
-                            <a href="#">Manage Group</a>
+                            <a href="{{url('/admin/customer-groups')}}">Manage Group</a>
                         </li>
                     </ul>
                 </div>
@@ -60,58 +60,58 @@
                 <div class="collapse" id="sidebarPages">
                     <ul class="side-nav-second-level">
                         <li>
-                            <a href="#">Products</a>
+                            <a href="{{url('/admin/products')}}">Products</a>
                         </li>
                         <li>
-                            <a href="#">Categories</a>
+                            <a href="{{url('/admin/categories')}}">Categories</a>
                         </li>
                         <li>
-                            <a href="#">Collection</a>
+                            <a href="{{url('/admin/collections')}}">Collection</a>
                         </li>
                         <li>
-                            <a href="#">Banners</a>
+                            <a href="{{url('/admin/banners')}}">Banners</a>
                         </li>
                     </ul>
                 </div>
             </li>
 
             <li class="side-nav-item">
-                <a href="#" class="side-nav-link">
+                <a href="{{url('/admin/events')}}" class="side-nav-link">
                     <i class="ri-table-line"></i>
                     {{-- <span class="badge bg-success float-end">9+</span> --}}
                     <span> Events </span>
                 </a>
             </li>
             <li class="side-nav-item">
-                <a href="#" class="side-nav-link">
+                <a href="{{url('/admin/pages')}}" class="side-nav-link">
                     <i class="ri-pages-line"></i>
                     {{-- <span class="badge bg-success float-end">9+</span> --}}
                     <span> Pages </span>
                 </a>
             </li>
             <li class="side-nav-item">
-                <a href="#" class="side-nav-link">
+                <a href="{{url('/admin/subscribers')}}" class="side-nav-link">
                     <i class="ri-user-line"></i>
                     {{-- <span class="badge bg-success float-end">9+</span> --}}
                     <span> Subscribers </span>
                 </a>
             </li>
             <li class="side-nav-item">
-                <a href="#" class="side-nav-link">
+                <a href="{{url('/admin/wishlist')}}" class="side-nav-link">
                     <i class="ri-shopping-bag-3-line"></i>
                     {{-- <span class="badge bg-success float-end">9+</span> --}}
                     <span> Wishlists </span>
                 </a>
             </li>
             <li class="side-nav-item">
-                <a href="#" class="side-nav-link">
+                <a href="{{url('/admin/contact-inquiries')}}" class="side-nav-link">
                     <i class="ri-shopping-bag-3-line"></i>
                     {{-- <span class="badge bg-success float-end">9+</span> --}}
                     <span> Contact Inquiries </span>
                 </a>
             </li>
             <li class="side-nav-item">
-                <a href="#" class="side-nav-link">
+                <a href="{{url('/admin/catalog-requests')}}" class="side-nav-link">
                     <i class="ri-shopping-bag-3-line"></i>
                     {{-- <span class="badge bg-success float-end">9+</span> --}}
                     <span> Catalog Request </span>
