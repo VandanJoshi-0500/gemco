@@ -11,7 +11,7 @@
     </div>
     <div class="card">
         <div class="card-body">
-            <form action="{{route('admin.add.collection.data')}}" method="post" enctype="multipart/form-data" class="row g-3">
+            <form action="" method="post" enctype="multipart/form-data" class="row g-3">
                 @csrf
                 <div class="col-md-6">
                     <label for="Name" class="form-label">Collection Name <span class="text-danger">*</span></label>

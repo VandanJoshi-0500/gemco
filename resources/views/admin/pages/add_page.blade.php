@@ -12,7 +12,7 @@
     </div>
     <div class="card">
         <div class="card-body">
-            <form action="{{route('admin.add.page.data')}}" method="post" enctype="multipart/form-data" class="row g-3">
+            <form action="" method="post" enctype="multipart/form-data" class="row g-3">
                 @csrf
                 <div class="col-md-12">
                     <label for="Title" class="form-label">Page Title <span class="text-danger">*</span></label>

@@ -9,7 +9,7 @@
                 <a href="#" class="btn btn-sm btn-primary align-items-center btn btn-primary btn-sm d-flex" data-bs-toggle="modal" data-bs-target="#kt_modal_bulk_import"
                                 data-bs-toggle="modal"><i class="bi bi-plus-lg me-2"></i>
                                 Bulk Import</a>
-                <a href="#" class="ms-2 btn gc_btn">
+                <a href="{{route('admin.add_product')}}" class="ms-2 btn gc_btn">
                     <i class="bi bi-plus"></i>
                     Add Product
                 </a>

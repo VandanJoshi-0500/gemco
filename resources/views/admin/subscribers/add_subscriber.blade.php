@@ -11,7 +11,7 @@
 </div>
 <div class="card">
     <div class="card-body">
-        <form action="{{route('admin.add.subscriber.data')}}" method="post" enctype="multipart/form-data" class="row g-3">
+        <form action="" method="post" enctype="multipart/form-data" class="row g-3">
             @csrf
             <div class="col-md-12">
                 <label for="Email" class="form-label">Email Address <span class="text-danger">*</span></label>

@@ -7,7 +7,7 @@
             <div class="pe-4 fs-5">Customer Group Master</div>
             <div class="ms-auto">
                 <div class="d-flex align-items-center">
-                    <a href="#" class="btn gc_btn align-items-center d-none d-md-flex"><span class="fs-4 me-2">+</span>Add New</a>
+                    <a href="{{route('admin.add_customer_groups')}}" class="btn gc_btn align-items-center d-none d-md-flex"><span class="fs-4 me-2">+</span>Add New</a>
                 </div>
             </div>
         </div>

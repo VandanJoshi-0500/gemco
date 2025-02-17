@@ -15,6 +15,8 @@ class AdminController extends Controller
     {
         return view('admin.layouts.app');
     }
+
+    //view products page
     public function products()
     {
         return view('admin.products.products');
@@ -111,5 +113,50 @@ class AdminController extends Controller
     public function admin_edit_profile()
     {
         return view('admin.profile.edit_profile');
+    }
+
+
+    // all adding routes
+    //admin new customer add
+    public function addCustomer()
+    {
+        return view('admin.users.add_user');
+    }
+
+    //admin new customer groups add
+    public function addCustomerGroups()
+    {
+        return view('admin.user_groups.add_group');
+    }
+
+    // admin product add
+    public function addProduct()
+    {
+        return view('admin.products.add_product');
+    }
+    // admin collection add
+    public function addCollection()
+    {
+        return view('admin.collections.add_collection');
+    }
+    // admin banner add
+    public function addBanner()
+    {
+        return view('admin.banners.add_banner');
+    }
+    // admin event add
+    public function addEvent()
+    {
+        return view('admin.events.add_event');
+    }
+    // admin page add
+    public function addPage()
+    {
+        return view('admin.pages.add_page');
+    }
+    // admin subscribers add
+    public function addSubscriber()
+    {
+        return view('admin.subscribers.add_subscriber');
     }
 }

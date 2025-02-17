@@ -36,22 +36,34 @@ Route::get('/admin/dashboard',[AdminController::class,'admindashboard'])->name('
 
 // customers section routes
 Route::get('/admin/customer',[AdminController::class,'manage_customers'])->name('admin.customers');
+Route::get('/admin/add-customer',[AdminController::class, 'addCustomer'])->name('admin.add_customer');
 Route::get('/admin/customer-groups',[AdminController::class,'manage_customer_groups'])->name('admin.customers-group');
+Route::get('/admin/add-customer-group',[AdminController::class, 'addCustomerGroups'])->name('admin.add_customer_groups');
 
 // catalog section routes
 Route::get('/admin/products',[AdminController::class,'products'])->name('admin.products');
+Route::get('/admin/add-product',[AdminController::class, 'addProduct'])->name('admin.add_product');
 Route::get('/admin/categories',[AdminController::class,'categories'])->name('admin.categories');
 Route::get('/admin/collections',[AdminController::class,'collections'])->name('admin.collections');
+Route::get('/admin/add-collection',[AdminController::class, 'addCollection'])->name('admin.add_collection');
 Route::get('/admin/banners',[AdminController::class,'banners'])->name('admin.banners');
+Route::get('/admin/add-banner',[AdminController::class, 'addBanner'])->name('admin.add_banner');
+
 
 // event route
 Route::get('/admin/events',[AdminController::class,'events'])->name('admin.events');
+Route::get('/admin/add-event',[AdminController::class, 'addEvent'])->name('admin.add_event');
+
 
 // admin pages route
 Route::get('/admin/pages',[AdminController::class,'pages'])->name('admin.pages');
+Route::get('/admin/add-page',[AdminController::class, 'addPage'])->name('admin.add_page');
+
 
 // subscribers route
 Route::get('/admin/subscribers',[AdminController::class,'subscribers'])->name('admin.subscribers');
+Route::get('/admin/add-subscriber',[AdminController::class, 'addSubscriber'])->name('admin.add_subscriber');
+
 
 // subscribers route
 Route::get('/admin/wishlist',[AdminController::class,'wishlist'])->name('admin.wishlist');
@@ -62,9 +74,8 @@ Route::get('/admin/contact-inquiries',[AdminController::class,'contact_inquiries
 // catalog-requests route
 Route::get('/admin/catalog-requests',[AdminController::class,'catalog_requests'])->name('admin.catalog_requests');
 
-// admin
+// admin login-logout routes
 Route::get('/admin', [AuthController::class, 'index'])->name('admin');
-// Route::get('/login', [AuthController::class, 'index'])->name('login');
 Route::post('admin-login', [AuthController::class, 'adminLogin'])->name('admin_login');
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
@@ -86,6 +97,8 @@ Route::get('/admin/email-settings',[AdminController::class,'email_settings'])->n
 Route::get('/admin/view-profile',[AdminController::class,'admin_view_profile'])->name('admin.view.profile');
 // Admin Profile Edit Route
 Route::get('/admin/edit-profile',[AdminController::class,'admin_edit_profile'])->name('admin.edit.profile');
+
+
 
 
 

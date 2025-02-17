@@ -6,7 +6,7 @@
         <div class="d-md-flex gap-4 align-items-center">
             <div class="d-none d-md-flex">All Evetns</div>
             <div class="ms-auto d-flex arcon-user-inner-search-outer">
-                <a href="#" class="ms-2 btn gc_btn">
+                <a href="{{route('admin.add_event')}}" class="ms-2 btn gc_btn">
                     <i class="bi bi-plus"></i>
                     Add Event
                 </a>

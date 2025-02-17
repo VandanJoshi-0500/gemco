@@ -6,13 +6,13 @@
         <div class="card-body d-flex align-items-center p-lg-3 p-2 staff_header">
             <div class="pe-4 fs-5">Edit Customer Group</div>
             <div class="ms-auto">
-                <a href="{{route('admin.user.groups')}}" class="btn gc_btn">Go Back</a>
+                <a href="{{route('admin.customers-group')}}" class="btn gc_btn">Go Back</a>
             </div>
         </div>
     </div>
     <div class="card">
         <div class="card-body">
-            <form action="{{route('admin.add.usergroup.data')}}" method="post" class="row g-3">
+            <form action="" method="post" class="row g-3">
                 @csrf
                 <div class="col-md-12">
                     <label for="GroupName" class="form-label">Group Name <span class="text-danger">*</span></label>

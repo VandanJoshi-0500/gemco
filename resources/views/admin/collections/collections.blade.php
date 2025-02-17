@@ -7,7 +7,7 @@
             <div class="ms-auto">
                 <div class="d-flex align-items-center">
                     <a href="#" class="d-none d-sm-block"><img src="{{url('/')}}/Assets/Images/search.png" alt="" class="ed_btn me-3"></a>
-                    <a href="#" class="btn gc_btn align-items-center d-none d-md-flex"><span class="fs-4 me-2">+</span>Add Collection</a>
+                    <a href="{{route('admin.add_collection')}}" class="btn gc_btn align-items-center d-none d-md-flex"><span class="fs-4 me-2">+</span>Add Collection</a>
                 </div>
             </div>
         </div>

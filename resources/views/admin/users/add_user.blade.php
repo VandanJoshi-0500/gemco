@@ -6,13 +6,13 @@
         <div class="card-body d-flex align-items-center p-lg-3 p-2 staff_header">
             <div class="pe-4 fs-5">Add Customer</div>
             <div class="ms-auto">
-                <a href="{{route('admin.users')}}" class="btn gc_btn">Go Back</a>
+                <a href="{{route('admin.customers')}}" class="btn gc_btn">Go Back</a>
             </div>
         </div>
     </div>
     <div class="card">
         <div class="card-body">
-            <form action="{{route('admin.add.user.data')}}" method="post" class="row g-3">
+            <form action="" method="post" class="row g-3">
                 @csrf
                 <div class="col-md-6">
                     <label for="FirstName" class="form-label">First Name <span class="text-danger">*</span></label>
@@ -67,11 +67,11 @@
                     <label for="State" class="form-label">State </label>
                     <select id="State" name="state" class="form-control">
                         <option value="0" selected>State / Provience *</option>
-                        @if(!blank($states))
+                        {{-- @if(!blank($states))
                             @foreach ($states as $state)
                                 <option value="{{$state['id']}}" @if(old('state') == $state['id']) selected @endif>{{$state['name']}}</option>
                             @endforeach
-                        @endif
+                        @endif --}}
                     </select>
                     @if ($errors->has('state'))
                         <span class="text-danger">{{ $errors->first('state') }}</span>
@@ -81,11 +81,11 @@
                     <label for="Country" class="form-label">Country </label>
                     <select name="country" id="Country" class="form-control">
                         <option value="0" selected>Select Country *</option>
-                        @if(!blank($countries))
+                        {{-- @if(!blank($countries))
                             @foreach ($countries as $country)
                                 <option value="{{$country['id']}}" @if($country['id'] == 236) selected @endif>{{$country['name']}}</option>
                             @endforeach
-                        @endif
+                        @endif --}}
                     </select>
                     @if ($errors->has('country'))
                         <span class="text-danger">{{ $errors->first('country') }}</span>
@@ -116,11 +116,11 @@
                     <label for="UserGroup" class="form-label">User Group </label>
                     <select name="user_group" id="UserGroup" class="form-control">
                         <option value="0">Select Customer Group...</option>
-                        @if(!blank($groups))
+                        {{-- @if(!blank($groups))
                             @foreach ($groups as $item)
                                 <option value="{{$item->id}}">{{$item->name}}</option>
                             @endforeach
-                        @endif
+                        @endif --}}
                     </select>
                     @if ($errors->has('user_group'))
                         <span class="text-danger">{{ $errors->first('user_group') }}</span>
@@ -159,7 +159,7 @@
     </div>
 </div>
 @endsection
-@section('script')
+{{-- @section('script')
 <script>
     $(document).ready(function(){
         $(document).on('change','#Country',function(){
@@ -175,4 +175,4 @@
         });
     });
 </script>
-@endsection
+@endsection --}}

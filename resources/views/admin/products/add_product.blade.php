@@ -12,7 +12,7 @@
     </div>
     <div class="card">
         <div class="card-body">
-            <form action="{{route('admin.add.product.data')}}" method="post" enctype="multipart/form-data" class="row g-3">
+            <form action="" method="post" enctype="multipart/form-data" class="row g-3">
                 @csrf
                 <div class="col-md-6 ">
                     <label for="Name" class="form-label">Product Name <span class="text-danger">*</span></label>
@@ -32,11 +32,27 @@
                     <label for="Collection" class="form-label">Collection</label>
                     <select class="form-control" name="collection" id="Collection">
                         <option value="0">Select Collection</option>
-                        @if (!blank($collections))
+                        <option value="1">Baguette Jewelry</option>
+                        <option value="2">Cameo Jewelry</option>
+                        <option value="3">Carving Jewelry</option>
+                        <option value="4">Enamel Jewelry</option>
+                        <option value="5">Finding Gold Jewelry</option>
+                        <option value="6">Gemstone Jewelry</option>
+                        <option value="7">Geode Jewelry</option>
+                        <option value="8">Jade Jewelry</option>
+                        <option value="9">Pave Jewelry</option>
+                        <option value="10">Pearl Jewelry</option>
+                        <option value="11">Precious Stone Jewelry</option>
+                        <option value="12">Semiprecious Stone Jewelry</option>
+                        <option value="13">Slice Diamond Jewelry</option>
+                        <option value="14">Uncut & Rose Cut Diamond Jewel</option>
+
+
+                        {{-- @if (!blank($collections))
                             @foreach ($collections as $collection)
                                 <option value="{{$collection->id}}">{{$collection->name}}</option>
                             @endforeach
-                        @endif
+                        @endif --}}
                     </select>
                     @if ($errors->has('collection'))
                         <span class="text-danger">{{ $errors->first('collection') }}</span>
@@ -46,12 +62,21 @@
                     <label for="Category" class="form-label">Category</label>
                     <select class="form-control" name="categories" id="Category">
                         <option value="0">Select Category</option>
-                        @if (count($parent_categories)>0)
-                        @foreach ($parent_categories as $item)
+                        <option value="1">NECKLACES</option>
+                        <option value="2">BANGLES</option>
+                        <option value="3">CHARMS</option>
+                        <option value="4">PENDANTS</option>
+                        <option value="5">EARRINGS</option>
+                        <option value="6">RINGS</option>
+                        <option value="7">FINDINGS</option>
+                        <option value="8">NECKLACES</option>
+                        <option value="9">CUFFLINKS</option>
+                        {{-- @if (count($parent_categories)>0)
+                        @foreach ($parent_categories as $item) --}}
                             <?php
-                                $childs = DB::table('categories')->where('parent',$item->id)->get();
+                                // $childs = DB::table('categories')->where('parent',$item->id)->get();
                             ?>
-                            @if (count($childs)>0)
+                            {{-- @if (count($childs)>0)
                                 <optgroup label="{{$item->name}}">
                                     @foreach ($childs as $child)
                                         <option value="{{$child->id}}">{{$child->name}}</option>
@@ -61,7 +86,7 @@
                                 <option value="{{$item->id}}">{{$item->name}}</option>
                             @endif
                         @endforeach
-                    @endif
+                    @endif --}}
                     </select>
                     @if ($errors->has('collection'))
                         <span class="text-danger">{{ $errors->first('collection') }}</span>
