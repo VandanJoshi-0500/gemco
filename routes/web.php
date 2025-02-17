@@ -84,6 +84,8 @@ Route::get('/admin/email-settings',[AdminController::class,'email_settings'])->n
 
 // Admin Profile view route
 Route::get('/admin/view-profile',[AdminController::class,'admin_view_profile'])->name('admin.view.profile');
+// Admin Profile Edit Route
+Route::get('/admin/edit-profile',[AdminController::class,'admin_edit_profile'])->name('admin.edit.profile');
 
 
 

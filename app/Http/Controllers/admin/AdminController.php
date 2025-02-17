@@ -107,4 +107,9 @@ class AdminController extends Controller
     {
         return view('admin.profile.view_profile');
     }
+    // admin profile edit
+    public function admin_edit_profile()
+    {
+        return view('admin.profile.edit_profile');
+    }
 }

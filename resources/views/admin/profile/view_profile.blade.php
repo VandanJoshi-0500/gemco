@@ -20,7 +20,7 @@
                         <img id="image" class="br-50" src="{{ $image }}"
                          alt="" style="height: 100px; width:100px;">
                     @else --}}
-                        <img id="image" class="br-50" src="{{url('/assets1/Images/users/avatar-1.jpg')}}"
+                        <img id="image" class="br-50" src="{{url('/assets/images/users/avatar-6.jpg')}}"
                         alt="" style="height: 100px; width:100px;">
                     {{-- @endif --}}
 
@@ -31,7 +31,7 @@
                         <h6><i class="bi bi-envelope"></i> admin@admin.com</h6>
                         {{-- @if(!blank(Auth::user()->phone))<h6><i class="bi bi-phone"></i>{{Auth::user()->phone}} </h6>@endif --}}
                         <h6><i class="bi bi-phone"></i> 9876543210</h6>
-                        <a href="#" class="btn btn-primary mt-2">Edit Profile</a>
+                        <a href="{{route('admin.edit.profile')}}" class="btn btn-primary mt-2">Edit Profile</a>
                     </div>
                 </div>
             </div>
