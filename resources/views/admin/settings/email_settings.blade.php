@@ -6,18 +6,18 @@
             <p class="alert
             {{ Session::get('alert-class', 'alert-danger') }}">{{Session::get('alert') }}</p>
         @endif
-        <form action="{{ route('save_email_settings') }}" method="POST" class="row g-3" enctype="multipart/form-data">
+        <form action="" method="POST" class="row g-3" enctype="multipart/form-data">
            @csrf
             <div class="col-12">
                 <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="" name="admin_email" placeholder=" " value="{{$settings->admin_email}}">
+                <input type="email" class="form-control" id="" name="admin_email" placeholder=" " value="">
                 @if ($errors->has('admin_email'))
                     <span class="text-danger">{{ $errors->first('admin_email') }}</span>
                 @endif
             </div>
             <div class="col-12">
                 <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="" name="admin_password" placeholder=" " value="{{$settings->admin_password}}">
+                <input type="password" class="form-control" id="" name="admin_password" placeholder=" " value="">
                 @if ($errors->has('admin_password'))
                     <span class="text-danger">{{ $errors->first('admin_password') }}</span>
                 @endif

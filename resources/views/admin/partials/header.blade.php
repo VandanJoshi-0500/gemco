@@ -49,7 +49,7 @@
                     <!-- Topbar Brand Logo -->
                     <div class="logo-topbar">
                         <!-- Logo light -->
-                        <a href="{{url('/admin/dashboard')}}" class="logo-light">
+                        <a href="{{route('admin.dashboard')}}" class="logo-light">
                             <span class="logo-lg">
                                 <img src="{{url('frontend/Assets/Logo.png')}}" alt="logo">
                             </span>
@@ -204,13 +204,13 @@
                             </div>
 
                             <!-- item-->
-                            <a href="{{url('/admin/view-profile')}}" class="dropdown-item">
+                            <a href="{{route('admin.view.profile')}}" class="dropdown-item">
                                 <i class="ri-account-circle-line fs-18 align-middle me-1"></i>
                                 <span>My Account</span>
                             </a>
 
                             <!-- item-->
-                            <a href="{{url('/admin/settings')}}" class="dropdown-item">
+                            <a href="{{route('admin.settings')}}" class="dropdown-item">
                                 <i class="ri-settings-4-line fs-18 align-middle me-1"></i>
                                 <span>Settings</span>
                             </a>

@@ -58,7 +58,7 @@
     <nav class="navbar navbar-expand-lg ">
         <div class="container Nav-Container">
             <!-- Logo on the left -->
-            <a class="navbar-brand" href="{{url('/home')}}">
+            <a class="navbar-brand" href="{{route('home')}}">
                 <img src="{{url('frontend/Assets/Logo.png')}}" alt="Logo" width="120" height="50">
             </a>
 
@@ -72,20 +72,20 @@
             <!-- Navigation Links in Center -->
             <div class="collapse navbar-collapse justify-content-center NavMenu" id="navbarNav">
                 <ul class="navbar-nav Menu-UL">
-                    <li class="nav-item Menu-LI"><a class="nav-link" href="{{url('/home')}}">Home</a></li>
-                    <li class="nav-item Menu-LI"><a class="nav-link" href="{{url('/about')}}">About Us</a></li>
-                    <li class="nav-item Menu-LI"><a class="nav-link" href="{{url('/collection')}}">Collection</a></li>
-                    <li class="nav-item Menu-LI"><a class="nav-link" href="{{url('/jewellery')}}">Jewellery</a></li>
-                    <li class="nav-item Menu-LI"><a class="nav-link" href="{{url('/catalog')}}">Catalog</a></li>
-                    <li class="nav-item Menu-LI"><a class="nav-link" href="{{url('/contact')}}">Contact Us</a></li>
+                    <li class="nav-item Menu-LI"><a class="nav-link" href="{{route('home')}}">Home</a></li>
+                    <li class="nav-item Menu-LI"><a class="nav-link" href="{{route('about')}}">About Us</a></li>
+                    <li class="nav-item Menu-LI"><a class="nav-link" href="{{route('collection')}}">Collection</a></li>
+                    <li class="nav-item Menu-LI"><a class="nav-link" href="{{route('jewellery')}}">Jewellery</a></li>
+                    <li class="nav-item Menu-LI"><a class="nav-link" href="{{route('catalog')}}">Catalog</a></li>
+                    <li class="nav-item Menu-LI"><a class="nav-link" href="{{route('contact')}}">Contact Us</a></li>
                 </ul>
             </div>
 
             <!-- Icons and Button on the Right -->
             <div class="d-flex align-items-center NavIcons">
                 <a href="#" class="nav-link"><i class="fas fa-search"></i></a>
-                <a href="{{url('/cart')}}" class="nav-link"><i class="fas fa-shopping-cart"></i></a>
-                <a href="{{url('/userlogin')}}" class="nav-link"><i class="fas fa-user"></i></a>
+                <a href="{{route('cart')}}" class="nav-link"><i class="fas fa-shopping-cart"></i></a>
+                <a href="{{route('user.login')}}" class="nav-link"><i class="fas fa-user"></i></a>
                 <a href="#" class="btn btn-primary ms-2 GetSpecialBTN">Get Special Offer</a>
             </div>
         </div>

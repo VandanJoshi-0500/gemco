@@ -81,8 +81,27 @@ class AdminController extends Controller
     // admin profile settings
     public function adminsetting()
     {
-        return view('admin.settings.template');
+        return view('admin.layouts.setting');
     }
+    // sub routes under profile section
+
+    //general setting
+    public function general_settings()
+    {
+        return view('admin.settings.general_settings');
+    }
+    //company information
+    public function company_settings()
+    {
+        return view('admin.settings.company_settings');
+    }
+    //email setting
+    public function email_settings()
+    {
+        return view('admin.settings.email_settings');
+    }
+
+
     // admin profile view
     public function admin_view_profile()
     {
