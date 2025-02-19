@@ -78,7 +78,7 @@ class AuthController extends Controller
     public function logout(Request $request) {
 
         Auth::logout();
-        return redirect('/login');
+        return redirect('/userlogin');
     }
     public function showResetPasswordForm($token) {
          return view('auth.reset-password', ['token' => $token]);

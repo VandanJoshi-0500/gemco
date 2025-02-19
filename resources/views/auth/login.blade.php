@@ -19,7 +19,7 @@
             <div class="form">
             <form action="{{ route('admin_login') }}" method="post" class="mt-4">
                 @csrf
-                <img src="{{url('frontend/Assets/logo2.png')}}" alt="" class="img-fluid mb-md-4 md-2" width="200">
+                <img src="frontend/Assets/logo2.png" alt="" class="img-fluid mb-md-4 md-2" width="200">
                 <h2 class="mt-3">Login</h2>
                 @if(Session::has('message'))
                     <p class="alert
@@ -31,7 +31,7 @@
                         <label for="username">Username</label>
                         <div class="input-group mb-3">
                             <span class="input-group-text px-2" id="basic-addon1"><img
-                                    src="{{url('Assets1\Images\login_user.png')}}" alt=""></span>
+                                    src="{{url('/')}}\Assets1\Images\login_user.png" alt=""></span>
                             <input type="text" class="form-control" name="email" value="{{old('email')}}" id="username" placeholder="Username"
                                 aria-label="Username" aria-describedby="basic-addon1" autofocus>
                         </div>
@@ -44,7 +44,7 @@
                         <label for="password">Password</label>
                         <div class="input-group mb-3">
                             <span class="input-group-text px-2" id="basic-addon2"><img
-                                    src="{{url('Assets1\Images\login_pw.png')}}" alt=""></span>
+                                    src="{{url('/')}}\Assets1\Images\login_pw.png" alt=""></span>
                             <input type="password" name="password" value="{{old('password')}}" class="form-control" id="password" placeholder="Password"
                                 aria-label="Password" aria-describedby="basic-addon2">
                         </div>

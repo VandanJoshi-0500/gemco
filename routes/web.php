@@ -28,10 +28,6 @@ Route::get('/userlogin',[LoginController::class,'index'])->name('user.login');
 
 // Admin Routes
 
-// Route::get('/admin', [AdminController::class, 'adminlogin']);
-
-
-
 Route::get('/admin/dashboard',[AdminController::class,'admindashboard'])->name('admin.dashboard');
 
 // customers section routes
@@ -49,21 +45,17 @@ Route::get('/admin/add-collection',[AdminController::class, 'addCollection'])->n
 Route::get('/admin/banners',[AdminController::class,'banners'])->name('admin.banners');
 Route::get('/admin/add-banner',[AdminController::class, 'addBanner'])->name('admin.add_banner');
 
-
 // event route
 Route::get('/admin/events',[AdminController::class,'events'])->name('admin.events');
 Route::get('/admin/add-event',[AdminController::class, 'addEvent'])->name('admin.add_event');
-
 
 // admin pages route
 Route::get('/admin/pages',[AdminController::class,'pages'])->name('admin.pages');
 Route::get('/admin/add-page',[AdminController::class, 'addPage'])->name('admin.add_page');
 
-
 // subscribers route
 Route::get('/admin/subscribers',[AdminController::class,'subscribers'])->name('admin.subscribers');
 Route::get('/admin/add-subscriber',[AdminController::class, 'addSubscriber'])->name('admin.add_subscriber');
-
 
 // subscribers route
 Route::get('/admin/wishlist',[AdminController::class,'wishlist'])->name('admin.wishlist');
@@ -79,10 +71,6 @@ Route::get('/admin', [AuthController::class, 'index'])->name('admin');
 Route::post('admin-login', [AuthController::class, 'adminLogin'])->name('admin_login');
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
-
-
-// ADMIN PROFILE SETTING ALL ROUTES
-
 // (Admin Profile settings route)
 Route::get('/admin/settings',[AdminController::class,'adminsetting'])->name('admin.settings');
 // Admin Profile Setting -> general setting
@@ -92,21 +80,17 @@ Route::get('/admin/company-settings',[AdminController::class,'company_settings']
 // Admin Profile Setting -> email setting
 Route::get('/admin/email-settings',[AdminController::class,'email_settings'])->name('admin.email_setting');
 
-
 // Admin Profile view route
 Route::get('/admin/view-profile',[AdminController::class,'admin_view_profile'])->name('admin.view.profile');
 // Admin Profile Edit Route
 Route::get('/admin/edit-profile',[AdminController::class,'admin_edit_profile'])->name('admin.edit.profile');
 
 
-
-
-
-// Route::get('/clear-all-cache', function () {
-//     Artisan::call('cache:clear');
-//     Artisan::call('route:clear');
-//     Artisan::call('config:clear');
-//     Artisan::call('view:clear');
-//     Artisan::call('optimize:clear');
-//     return 'All caches cleared successfully!';
-// });
+Route::get('/clear-all-cache', function () {
+    Artisan::call('cache:clear');
+    Artisan::call('route:clear');
+    Artisan::call('config:clear');
+    Artisan::call('view:clear');
+    Artisan::call('optimize:clear');
+    return 'All caches cleared successfully!';
+});
