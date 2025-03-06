@@ -6,7 +6,21 @@ use App\Http\Controllers\Frontend\LoginController;
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
-
+use App\Http\Controllers\FrontController;
+use App\Http\Controllers\SettingController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\WishlistController;
+use App\Http\Controllers\SubscriberController;
+use App\Http\Controllers\admin\UserGroupController;
+use App\Http\Controllers\admin\CollectionController;
+use App\Http\Controllers\admin\CategoryController;
+use App\Http\Controllers\admin\ProductController;
+use App\Http\Controllers\admin\EventController;
+use App\Http\Controllers\admin\PagesController;
+use App\Http\Controllers\admin\BannerController;
+use App\Http\Controllers\admin\WishlistsController;
+use App\Http\Controllers\admin\ContactInquiriesController;
+use App\Http\Controllers\admin\CatalogRequestsController;
 
 // Testing Route
 Route::get('/testing',[PageController::class,'testing'])->name('testing');
@@ -24,6 +38,10 @@ Route::get('/error',[PageController::class,'error'])->name('error');
 Route::get('/cart',[PageController::class,'cart'])->name('cart');
 Route::get('/detail',[PageController::class,'detail'])->name('detail');
 Route::get('/userlogin',[LoginController::class,'index'])->name('user.login');
+
+
+// middleware routes
+
 
 
 // Admin Routes

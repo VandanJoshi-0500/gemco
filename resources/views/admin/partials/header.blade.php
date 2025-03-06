@@ -51,6 +51,7 @@
                         <!-- Logo light -->
                         <a href="{{route('admin.dashboard')}}" class="logo-light">
                             <span class="logo-lg">
+
                                 <img src="{{url('frontend/Assets/Logo.png')}}" alt="logo">
                             </span>
                             <span class="logo-sm">

@@ -4,6 +4,16 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
+use Hash;
+use Session;
+use App\Models\RoleUser;
+use App\Models\User;
+use App\Models\Log;
+use App\Models\Setting;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class AdminController extends Controller
 {
@@ -11,6 +21,10 @@ class AdminController extends Controller
     // {
     //     return view('admin.adminlogin.admin');
     // }
+
+    // routes dynamic
+
+
     public function admindashboard()
     {
         return view('admin.layouts.app');
