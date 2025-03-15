@@ -1,23 +1,22 @@
 <div class="leftside-menu">
 
     <!-- Brand Logo Light -->
-    <a href="{{url('/admin/dashboard')}}" class="logo logo-light">
+    <a href="{{route('admin.dashboard')}}" class="logo logo-light">
         <span class="logo-lg">
-            <img src="{{url('frontend/Assets/Logo.png')}}" alt="logo">
+            <img src="{{url('/frontend/Assets/whitelogo.png')}}" alt="logo">
         </span>
         <span class="logo-sm">
-            <img src="{{url('frontend/Assets/google.png')}}" alt="small logo">
+            <img src="{{url('/frontend/Assets/whitelogo.png')}}" alt="small logo">
         </span>
     </a>
 
     <!-- Brand Logo Dark -->
-
     <a href="{{route('admin.dashboard')}}" class="logo logo-dark">
         <span class="logo-lg">
-            <img src="{{url('frontend/Assets/google.png')}}" alt="dark logo">
+            <img src="{{url('/frontend/Assets/whitelogo.png')}}" alt="dark logo">
         </span>
         <span class="logo-sm">
-            <img src="{{url('frontend/Assets/google.png')}}" alt="small logo">
+            <img src="{{url('/frontend/Assets/whitelogo.png')}}" alt="small logo">
         </span>
     </a>
 
@@ -43,10 +42,10 @@
                 <div class="collapse" id="sidebarPages1">
                     <ul class="side-nav-second-level">
                         <li>
-                            <a href="{{route('admin.customers')}}">Manage Customer</a>
+                            <a href="{{route('admin.users')}}">Manage Customer</a>
                         </li>
                         <li>
-                            <a href="{{route('admin.customers-group')}}">Manage Group</a>
+                            <a href="{{route('admin.user.groups')}}">Manage Group</a>
                         </li>
                     </ul>
                 </div>
@@ -98,21 +97,21 @@
                 </a>
             </li>
             <li class="side-nav-item">
-                <a href="{{route('admin.wishlist')}}" class="side-nav-link">
+                <a href="{{route('admin.wishlists')}}" class="side-nav-link">
                     <i class="ri-shopping-bag-3-line"></i>
                     {{-- <span class="badge bg-success float-end">9+</span> --}}
                     <span> Wishlists </span>
                 </a>
             </li>
             <li class="side-nav-item">
-                <a href="{{route('admin.contact_inquiries')}}" class="side-nav-link">
+                <a href="{{route('admin.contact.inquiries')}}" class="side-nav-link">
                     <i class="ri-shopping-bag-3-line"></i>
                     {{-- <span class="badge bg-success float-end">9+</span> --}}
                     <span> Contact Inquiries </span>
                 </a>
             </li>
             <li class="side-nav-item">
-                <a href="{{route('admin.catalog_requests')}}" class="side-nav-link">
+                <a href="{{route('admin.catalog.requests')}}" class="side-nav-link">
                     <i class="ri-shopping-bag-3-line"></i>
                     {{-- <span class="badge bg-success float-end">9+</span> --}}
                     <span> Catalog Request </span>

@@ -4,7 +4,7 @@
 <div class="card">
     <div class="card-body card-head">
         <div class="d-md-flex gap-4 align-items-center">
-            <div class="d-none d-md-flex">All Evetns</div>
+            <div class="d-none d-md-flex">All Events</div>
             <div class="ms-auto d-flex arcon-user-inner-search-outer">
                 <a href="{{route('admin.add_event')}}" class="ms-2 btn gc_btn">
                     <i class="bi bi-plus"></i>
@@ -27,12 +27,12 @@
                     <th class="text-end">Action</th>
                 </tr>
             </thead>
-            {{-- <tbody>
-                @if (count($events) > 0)
+            <tbody>
+                @if ($events && count($events) > 0)
                     @foreach ($events as $event)
                         <tr>
                             <td data-header="ID">{{$loop->index+1}}</td>
-                            <td data-header="Name"><a href="#" class="text-primary">{{$event->name}}</a></td>
+                            <td data-header="Name"><a href="{{ route('admin.edit_event',$event->id) }}" class="text-primary">{{$event->name}}</a></td>
                             <td data-header="OrderNo">{{$event->order_no}}</td>
                             <td data-th="Status">
                                 @if($event->status == 1)
@@ -44,7 +44,7 @@
                             <td>{{ date($setting->date_format,strtotime($event->created_at)) }}</td>
                             <td data-th="Action" class="text-md-end">
                                 <div class="d-flex float-end">
-                                    <a href="#" class=""><i class="ri-edit-2-fill fs-20"></i></a>
+                                    <a href="{{ route('admin.edit_event',$event->id) }}" class=""><i class="ri-edit-2-fill fs-20"></i></a>
                                     <a href="javascript:void(0);" data-id="{{ $event->id }}" class="ms-2 delete-btn"><i class="ri-delete-bin-fill fs-20"></i></a>
                                 </div>
                             </td>
@@ -55,7 +55,7 @@
                         <td colspan="6">Events Not Found.</td>
                     </tr>
                 @endif
-            </tbody> --}}
+            </tbody>
         </table>
     </div>
 </div>
@@ -82,7 +82,7 @@
                 }).then((result) => {
                 if (result.isConfirmed) {
                     $.ajax({
-                        url : "#"+"/"+user_id,
+                        url : "{{route('delete.event', '')}}"+"/"+user_id,
                         type : 'GET',
                         dataType:'json',
                         success : function(data) {

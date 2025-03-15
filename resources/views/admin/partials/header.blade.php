@@ -51,11 +51,10 @@
                         <!-- Logo light -->
                         <a href="{{route('admin.dashboard')}}" class="logo-light">
                             <span class="logo-lg">
-
-                                <img src="{{url('frontend/Assets/Logo.png')}}" alt="logo">
+                                <img src="{{url('frontend/Assets/whitelogo.png')}}" alt="logo">
                             </span>
                             <span class="logo-sm">
-                                <img src="{{url('frontend/Assets/google.png')}}" alt="small logo">
+                                <img src="{{url('frontend/Assets/whitelogo.png')}}" alt="small logo">
                             </span>
                         </a>
 

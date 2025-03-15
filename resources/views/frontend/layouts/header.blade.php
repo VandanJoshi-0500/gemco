@@ -59,7 +59,7 @@
         <div class="container Nav-Container">
             <!-- Logo on the left -->
             <a class="navbar-brand" href="{{route('home')}}">
-                <img src="{{url('frontend/Assets/Logo.png')}}" alt="Logo" width="120" height="50">
+                <img src="{{url('frontend/Assets/blacklogo.png')}}" alt="Logo" width="120" height="50">
             </a>
 
             <!-- Toggle Button for Mobile -->

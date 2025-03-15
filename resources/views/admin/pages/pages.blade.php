@@ -1,3 +1,4 @@
+
 @extends('admin.layouts.app')
 
 @section('content')
@@ -28,32 +29,37 @@
                     <th class="text-end">Action</th>
                 </tr>
             </thead>
-            {{-- <tbody>
-                @if (count($pages) > 0)
-                    @foreach ($pages as $page1)
-                        <tr>
-                            <td data-header="ID">{{$loop->index+1}}</td>
-                            <td data-header="Page Title"><a href="#" class="text-primary">{{$page1->page_title}}</a></td>
-                            <td data-header="Slug">{{$page1->slug}}</td>
-                            <td data-th="Status">
-                                @if($page1->status == 1)
-                                    <span class="badge bg-success">Active</span>
-                                @else
-                                    <span class="badge bg-danger">Deactive</span>
-                                @endif
-                            </td>
-                            <td>{{ date($setting->date_format,strtotime($page1->created_at)) }}</td>
-                            <td>{{ date($setting->date_format,strtotime($page1->updated_at)) }}</td>
-                            <td data-th="Action" class="text-md-end">
-                                <div class="d-flex float-end">
-                                    <a href="#" class=""><i class="ri-edit-2-fill fs-20"></i></a>
-                                    <a href="javascript:void(0);" data-id="{{ $page1->id }}" class="ms-2 delete-btn"><i class="ri-delete-bin-fill fs-20"></i></a>
-                                </div>
-                            </td>
-                        </tr>
-                    @endforeach
-                @endif
-            </tbody> --}}
+            <tbody>
+            @if ($pages && count($pages) > 0)
+                @foreach ($pages as $page1)
+                    <tr>
+                        <td data-header="ID">{{ $loop->index + 1 }}</td>
+                        <td data-header="Page Title"><a href="{{ route('admin.edit_page',$page1->id) }}" class="text-primary">{{ $page1->page_title }}</a></td>
+                        <td data-header="Slug">{{ $page1->slug }}</td>
+                        <td data-th="Status">
+                            @if ($page1->status == 1)
+                                <span class="badge bg-success">Active</span>
+                            @else
+                                <span class="badge bg-danger">Deactive</span>
+                            @endif
+                        </td>
+                        <td>{{ date($setting->date_format, strtotime($page1->created_at)) }}</td>
+                        <td>{{ date($setting->date_format, strtotime($page1->updated_at)) }}</td>
+                        <td data-th="Action" class="text-md-end">
+                            <div class="d-flex float-end">
+                                <a href="{{ route('admin.edit_page',$page1->id) }}" data-id="{{ $page1->id }}"class=""><i class="ri-edit-2-fill fs-20"></i></a>
+                                <a href="{{ route('delete.page',$page1->id) }}" data-id="{{ $page1->id }}" class="ms-2 delete-btn"><i class="ri-delete-bin-fill fs-20"></i></a>
+                            </div>
+                        </td>
+                    </tr>
+                @endforeach
+            @else
+                <tr>
+                    <td colspan="7" class="text-center">No pages found</td>
+                </tr>
+            @endif
+
+            </tbody>
         </table>
     </div>
 </div>
@@ -80,7 +86,7 @@
                 }).then((result) => {
                 if (result.isConfirmed) {
                     $.ajax({
-                        url : "#"+"/"+user_id,
+                        url : "{{route('delete.page', '')}}"+"/"+user_id,
                         type : 'GET',
                         dataType:'json',
                         success : function(data) {
@@ -94,7 +100,7 @@
                                 confirmButtonText: 'Ok'
                                 }).then((result) => {
                                 if (result.isConfirmed) {
-                                    location.reload();
+                                    top.location.href="#";
                                 }
                             });
                         }
@@ -104,5 +110,6 @@
         });
     });
     $('.example1').DataTable();
+
 </script>
 @endsection

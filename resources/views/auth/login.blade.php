@@ -19,7 +19,7 @@
             <div class="form">
             <form action="{{ route('admin_login') }}" method="post" class="mt-4">
                 @csrf
-                <img src="frontend/Assets/logo2.png" alt="" class="img-fluid mb-md-4 md-2" width="200">
+                <img src="{{url('/frontend/Assets/whitelogo.png')}}" alt="" class="img-fluid mb-md-4 md-2" width="200">
                 <h2 class="mt-3">Login</h2>
                 @if(Session::has('message'))
                     <p class="alert

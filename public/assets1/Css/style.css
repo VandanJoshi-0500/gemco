@@ -688,11 +688,17 @@ div.dataTables_wrapper div.dataTables_filter input {
   color: var(--text_white);
   border: 1px solid var(--bg_black);
   width: 350px;
-  padding: 40px 40px 60px;
+  padding: 25px;
   border-radius: 10px;
   text-align: center;
   box-shadow: 0 15px 25px 7px rgba(0,0,0,.6);
 }
+
+img.img-fluid.mb-md-4.md-2 {
+    width: 135px;
+    height: auto;
+}
+
 .gc_login_main .form::before {
   content: '';
   position: absolute;
