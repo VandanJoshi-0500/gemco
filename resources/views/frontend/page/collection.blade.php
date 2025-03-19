@@ -1,23 +1,23 @@
 
 @extends('frontend.layouts.main')
 
-@section('main-container')
+@section('content')
 
     <!-- ..........ABOUT TITLE AND BREADCRUMPS.......... -->
     <div class="container-fluid AboutTitleBreadCrumps">
         <div class="row container bg-transparent">
             <div class="col-12 text-center bg-transparent">
-                <h1 class=" bg-transparent">Jewellery</h1>
+                <h1 class=" bg-transparent">Collection</h1>
             </div>
             <div class="col-12 text-center mt-2 bg-transparent">
                 <nav aria-label="breadcrumb" class="bg-transparent">
                     <ul class="breadcrumb justify-content-center bg-transparent">
-                        <li class="breadcrumb-item bg-transparent"><a href={{url('/home')}} class="bg-transparent text-dark">Home</a>
+                        <li class="breadcrumb-item bg-transparent"><a href="{{url('/home')}}" class="bg-transparent text-dark">Home</a>
                         </li>
                         {{-- <li class="breadcrumb-item bg-transparent"><a href="#"
                                 class="bg-transparent text-dark">Pages</a>
                         </li> --}}
-                        <li class="breadcrumb-item bg-transparent" aria-current="page">Jewellery</li>
+                        <li class="breadcrumb-item bg-transparent" aria-current="page">Collection</li>
                     </ul>
                 </nav>
             </div>
@@ -78,13 +78,6 @@
                         </div>
                     </div>
 
-                    <!-- Filter By Price -->
-                    <div class="product-category-range bg-transparent">
-                        <h4>Filter By Price</h4>
-                        <input type="range" id="priceRange" name="price" min="54" max="2500" class="w-100 bg-transparent accent">
-                        <h6 class="bg-transparent">Price: $54 - $2,500</h6>
-                    </div>
-
                     <!-- Shop For -->
                     <div class="shop-for d-flex flex-wrap gap-2 bg-transparent">
                         <a type="button" class="btn btn-dark">RING</a>
@@ -94,11 +87,19 @@
                         <a type="button" class="btn btn-dark">GOLD</a>
                         <a type="button" class="btn btn-dark">PLATINUM</a>
                     </div>
-
-                    <!-- Submit Button -->
+                    <!-- Filter By Price -->
+                    <div class="product-category-range bg-transparent">
+                        <h4>Filter By Price</h4>
+                        <input type="range" id="priceRange" name="price" min="54" max="2500" class="w-100 bg-transparent accent">
+                        <h6 class="bg-transparent">Price: $54 - $2,500</h6>
+                         <!-- Submit Button -->
                      <div class="fiter-submit-btn bg-transparent d-flex justify-content-start align-items-center">
-                         <button type="submit" class="btn my-4">Apply Filters</button>
-                     </div>
+                        <button type="submit" class="btn my-4">Apply Filters</button>
+                    </div>
+                    </div>
+
+
+
                       <!-- Clear Button -->
                       <div class="fiter-clear-btn bg-transparent d-flex justify-content-start align-items-center">
                         <button type="submit" class="btn btn-outline-dark my-2">Clear Filters</button>
@@ -222,7 +223,7 @@
                                         <h5>Jacinth Gold Ring</h5>
                                         <div class="d-flex gap-2 mt-3 product-list-btns d-flex justify-content-around">
                                             <a class="btn send-enquiry">Send Enquiry</a>
-                                            <a class="btn quick-view" href='{{url('/detail')}}'>Quick View</a>
+                                            <a class="btn quick-view" href='{{url('/detail')}}' >Quick View</a>
                                         </div>
                                     </div>
                                 </div>

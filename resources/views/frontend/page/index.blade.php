@@ -1,7 +1,7 @@
 
 @extends('frontend.layouts.main')
 
-@section('main-container')
+@section('content')
 
     <!-- .....BANNER SECTION..... -->
     <div class="container-fluid p-0">

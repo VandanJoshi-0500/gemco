@@ -73,7 +73,7 @@ class FrontController extends Controller
                     $cols = [];
                     if (!empty($collect)) {
                         foreach ($collect as $key => $col) {
-                            
+
                             $coll = Collection::where('id', $col)->first();
                             if ($coll) {
                                 $cols[$key]['image'] = $coll->image;
@@ -295,7 +295,7 @@ class FrontController extends Controller
                 }
                 else if ($slug == 'aboutus') {
                     return view('frontend.pages.aboutus');
-                } 
+                }
                 else if ($slug == 'request-catalog') {
                     return view('frontend.pages.request-catalog');
                 } else {
@@ -359,12 +359,12 @@ class FrontController extends Controller
                                 return view('frontend.pages.product-listing', compact('collection', 'products', 'collec', 'cols', 'count'));
                             }
                         }
-                        return redirect()->route('not_found');
+                        // return redirect()->route('error');
                     }
                 }
             }
         } catch (\Exception $e) {
-            return redirect()->route('not_found');
+            // return redirect()->route('error');
         }
     }
     public function productDetails($slug)
@@ -375,13 +375,13 @@ class FrontController extends Controller
                 $id = $product->id;
                 return view('frontend.pages.product-detail', compact('id', 'product'));
             } else {
-                return redirect()->route('not_found');
+                return redirect()->route('error');
             }
         } catch (\Exception $e) {
-            return redirect()->route('not_found');
+            return redirect()->route('error');
         }
     }
-    
+
     public function all_productDetails(Request $request)
     {
         try {
@@ -463,10 +463,10 @@ class FrontController extends Controller
 
             return view('frontend.pages.all-product-listing', compact('products', 'count', 'pro_categories', 'pro_collections'));
         } catch (\Exception $e) {
-            return redirect()->route('not_found');
+            return redirect()->route('error');
         }
     }
-    
+
     public function error_404()
     {
         return view('frontend.404');
@@ -727,7 +727,7 @@ class FrontController extends Controller
 
     public function submitCatalogRequest(Request $request)
     {
-        
+
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
@@ -744,7 +744,7 @@ class FrontController extends Controller
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }
-        
+
         // Handle file upload
         $attachmentPath = null;
         if ($request->hasFile('attachment')) {
@@ -763,7 +763,7 @@ class FrontController extends Controller
             'attachment' => $attachmentPath,
             'comments' => $request->input('comments'),
         ]);
-        
+
         // Save the attachment if present
         $attachment = $request->hasFile('attachment') ? $request->file('attachment') : null;
 
@@ -788,7 +788,7 @@ class FrontController extends Controller
     {
         $collection = Collection::where('slug', $coll)->where('status', 1)->where('active', 1)->first();
       	if (!$collection) {
-      		return redirect()->route('not_found');
+      		return redirect()->route('error');
         }
         if ($request->ajax()) {
 
@@ -866,15 +866,15 @@ class FrontController extends Controller
                 $count = count($products);
                 return view('frontend.pages.category_product_list', compact('collection','category', 'products', 'count'));
             }
-            //return redirect()->route('not_found');
+            //return redirect()->route('error');
         }
     }
 
     public function show_page_category_collection_all(Request $request,$slug)
     {
-        try { 
+        try {
             $category = Category::where('slug', $slug)->where('status', 1)->where('active', 1)->first();
-           
+
             $per_page = $request->has('per_page') ? $request->per_page : 24;
             $order_by = 'id';
             $order = 'desc';
@@ -901,7 +901,7 @@ class FrontController extends Controller
                 ->where('active', 1)
                 ->orderBy($order_by, $order);
            // $products = Product::where('category', $id)->where('collection', $collection->id)->where('status', 1)->whereNot('price', 0)->where('active', 1)->orderBy($order_by, $order)->paginate($per_page);
-                    
+
             /*if ($request->has('categories') && !blank($request->categories)) {
                 $query->whereIn('category', $request->categories);
             }*/
@@ -955,10 +955,10 @@ class FrontController extends Controller
 
             return view('frontend.pages.category-all-product-listing', compact('products', 'count', 'pro_collections'));
         } catch (\Exception $e) {
-            return redirect()->route('not_found');
+            return redirect()->route('error');
         }
     }
-  
+
   	public function search(Request $request)
     {
 		$request->validate([

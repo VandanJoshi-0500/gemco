@@ -27,6 +27,7 @@ class UserController extends Controller
         $page = 'Customers';
         $icon = 'user.png';
         $users = User::where('role',3)->get();
+        // $users = User::all();
         return view('admin.users.users',compact('icon','page','users'));
     }
     public function addUser(Request $request){

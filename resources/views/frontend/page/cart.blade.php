@@ -1,7 +1,7 @@
 
 @extends('frontend.layouts.main')
 
-@section('main-container')
+@section('content')
 
 
       <!-- ..........ABOUT TITLE AND BREADCRUMPS.......... -->

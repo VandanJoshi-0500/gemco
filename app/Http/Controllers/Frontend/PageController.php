@@ -9,27 +9,27 @@ class PageController extends Controller
 {
     public function index()
     {
-        return view('Frontend.index');
+        return view('Frontend.page.index');
     }
     public function about()
     {
-        return view('Frontend.about');
+        return view('Frontend.page.about');
     }
     public function collection()
     {
-        return view('Frontend.Collection');
+        return view('Frontend.page.Collection');
     }
     public function cart()
     {
-        return view('Frontend.cart');
+        return view('Frontend.page.cart');
     }
     public function catalog()
     {
-        return view('Frontend.catalog');
+        return view('Frontend.page.catalog');
     }
     public function contact()
     {
-        return view('Frontend.contact');
+        return view('Frontend.page.contact');
     }
     public function error()
     {
@@ -37,14 +37,14 @@ class PageController extends Controller
     }
     public function jewellery()
     {
-        return view('Frontend.jewellery');
+        return view('Frontend.page.jewellery');
     }
     public function productdetail()
     {
-        return view('Frontend.productdetail');
+        return view('Frontend.page.productdetail');
     }
     public function testing()
     {
-        return view('Frontend.testing');
+        return view('Frontend.page.testing');
     }
 }
