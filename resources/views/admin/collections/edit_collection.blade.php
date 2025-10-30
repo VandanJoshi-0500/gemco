@@ -117,6 +117,14 @@
                         <label class="form-check-label" for="flexSwitchCheckChecked"></label>
                     </div>
                 </div>
+                <div class="col-md-12">
+                    <label for="showDropdownSwitch">Show in Dropdown <span class="text-danger">*</span></label>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" name="showindropdown" id="showDropdownSwitch"
+                            @if($collection->showindropdown == 1) checked @endif />
+                        <label class="form-check-label" for="showDropdownSwitch"></label>
+                    </div>
+                </div>
                 <div class="col-md-8">
                     <label for="Ring" class="">Ring Image</label>
                     <input type="file" name="ring_image" id="ring_image" class="form-control">

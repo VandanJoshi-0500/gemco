@@ -1,50 +1,49 @@
 <?php
 
-namespace App\Http\Controllers\Frontend;
+namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Product;
+use App\Models\Category;
+use App\Models\Collection;
+
 
 class PageController extends Controller
 {
-    public function index()
-    {
-        return view('Frontend.page.index');
-    }
+    // public function index()
+    // {
+
+    //     $products = Product::latest()->take(4)->get(); // fetch latest 4 products
+    //     return view('frontend.page.index', compact('products'));
+    // }
     public function about()
     {
-        return view('Frontend.page.about');
+        return view('frontend.page.about');
     }
-    public function collection()
+    public function collections()
     {
-        return view('Frontend.page.Collection');
+        return view('frontend.page.collections');
     }
     public function cart()
     {
-        return view('Frontend.page.cart');
+        return view('frontend.page.cart');
     }
-    public function catalog()
-    {
-        return view('Frontend.page.catalog');
-    }
-    public function contact()
-    {
-        return view('Frontend.page.contact');
-    }
+
     public function error()
     {
         return view('errors.404');
     }
     public function jewellery()
     {
-        return view('Frontend.page.jewellery');
+        return view('frontend.page.jewellery');
     }
     public function productdetail()
     {
-        return view('Frontend.page.productdetail');
+        return view('frontend.page.productdetail');
     }
     public function testing()
     {
-        return view('Frontend.page.testing');
+        return view('frontend.page.testing');
     }
 }

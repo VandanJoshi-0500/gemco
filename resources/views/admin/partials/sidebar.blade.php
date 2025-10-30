@@ -66,7 +66,13 @@
                             <a href="{{route('admin.categories')}}">Categories</a>
                         </li>
                         <li>
+                            <a href="{{route('admin.subcategory')}}">Sub Categories</a>
+                        </li>
+                        <li>
                             <a href="{{route('admin.collections')}}">Collection</a>
+                        </li>
+                        <li>
+                            <a href="{{route('admin.subcollection')}}">Sub Collection</a>
                         </li>
                         <li>
                             <a href="{{route('admin.banners')}}">Banners</a>

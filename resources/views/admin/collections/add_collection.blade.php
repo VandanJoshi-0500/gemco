@@ -5,24 +5,27 @@
         <div class="card-body d-flex align-items-center p-lg-3 p-2 staff_header">
             <div class="pe-4 fs-5">Add Collection</div>
             <div class="ms-auto">
-                <a href="{{route('admin.collections')}}" class="btn gc_btn">Go Back</a>
+                <a href="{{ route('admin.collections') }}" class="btn gc_btn">Go Back</a>
             </div>
         </div>
     </div>
     <div class="card">
         <div class="card-body">
-            <form action="{{route('admin.add.collection.data')}}" method="post" enctype="multipart/form-data" class="row g-3">
+            <form action="{{ route('admin.add.collection.data') }}" method="post" enctype="multipart/form-data"
+                class="row g-3">
                 @csrf
                 <div class="col-md-6">
                     <label for="Name" class="form-label">Collection Name <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" name="name" id="Name" value="{{old('name')}}" placeholder="" autofocus />
+                    <input type="text" class="form-control" name="name" id="Name" value="{{ old('name') }}"
+                        placeholder="" autofocus />
                     @if ($errors->has('name'))
                         <span class="text-danger">{{ $errors->first('name') }}</span>
                     @endif
                 </div>
                 <div class="col-md-6">
                     <label for="Slug" class="form-label">Slug</label>
-                    <input type="text" class="form-control" name="slug" id="Slug" value="{{old('slug')}}" placeholder="">
+                    <input type="text" class="form-control" name="slug" id="Slug" value="{{ old('slug') }}"
+                        placeholder="">
                     @if ($errors->has('slug'))
                         <span class="text-danger">{{ $errors->first('slug') }}</span>
                     @endif
@@ -41,21 +44,23 @@
 
                 <div class="col-md-12">
                     <label for="description" class="form-label">Description</label>
-                    <textarea class="form-control" name="description" rows="5" id="ckplot1" value="{{old('description')}}" placeholder="" >{{old('description')}}</textarea>
+                    <textarea class="form-control" name="description" rows="5" id="ckplot1" value="{{ old('description') }}"
+                        placeholder="">{{ old('description') }}</textarea>
                     @if ($errors->has('description'))
                         <span class="text-danger">{{ $errors->first('description') }}</span>
                     @endif
                 </div>
                 <div class="col-md-12">
                     <label for="orderNo" class="form-label">Order No</label>
-                    <input type="text" class="form-control" name="order_no" id="orderNo" value="{{old('order_no')}}" placeholder="" />
+                    <input type="text" class="form-control" name="order_no" id="orderNo" value="{{ old('order_no') }}"
+                        placeholder="" />
 
                     @if ($errors->has('order_no'))
                         <span class="text-danger">{{ $errors->first('order_no') }}</span>
                     @endif
                 </div>
                 <div class="col-md-12">
-                    <label for="Image" class="form-label" >Image Type</label>
+                    <label for="Image" class="form-label">Image Type</label>
                     <select name="image_type" id="ImageType" class="form-control">
                         <option value="1" selected>Upload Image</option>
                         <option value="2">Image Link</option>
@@ -73,13 +78,15 @@
                         @endif
                     </div>
                     <div class="col-md-2">
-                        <img src="{{url('/')}}/assets/Images/upload.png" class="product_preview upload w-50" id="product_image">
+                        <img src="{{ url('/') }}/assets/Images/upload.png" class="product_preview upload w-50"
+                            id="product_image">
                     </div>
                 </div>
                 <div class="col-md-12 imagelink d-none">
                     <div class="col-md-12">
                         <label for="ImageLink" class="form-label">Image Link</label>
-                        <input type="text" class="form-control" name="image_link" id="ImageLink" value="{{old('image_link')}}" placeholder="" />
+                        <input type="text" class="form-control" name="image_link" id="ImageLink"
+                            value="{{ old('image_link') }}" placeholder="" />
                         @if ($errors->has('image'))
                             <span class="text-danger">{{ $errors->first('image') }}</span>
                         @endif
@@ -93,15 +100,40 @@
                     @endif
                 </div>
                 <div class="col-md-2">
-                    <img src="{{url('/')}}/assets/Images/upload.png" class="menu_preview upload w-50" id="menu_image">
+                    <img src="{{ url('/') }}/assets/Images/upload.png" class="menu_preview upload w-50"
+                        id="menu_image">
                 </div>
-                <div class="col-md-6">
+                
+                <div class="col-md-12">
+                    <label for="statusSwitch">Status <span class="text-danger">*</span></label>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" name="status" id="statusSwitch" checked />
+                        <label class="form-check-label" for="statusSwitch"></label>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <label for="showDropdownSwitch">Show in Dropdown <span class="text-danger">*</span></label>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" name="showindropdown" id="showDropdownSwitch"
+                            checked />
+                        <label class="form-check-label" for="showDropdownSwitch"></label>
+                    </div>
+                </div>
+                {{-- <div class="col-md-12">
                     <label for="Status" class="">Status <span class="text-danger">*</span></label>
                     <div class="form-check form-switch">
                         <input class="form-check-input" type="checkbox" name="status" id="flexSwitchCheckChecked" checked />
                         <label class="form-check-label" for="flexSwitchCheckChecked"></label>
                     </div>
                 </div>
+                <div class="col-md-12">
+                    <label for="ShowinDropdown" class="">ShowinDropdown<span class="text-danger">*</span></label>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" name="showindropdown" id="flexSwitchCheckChecked1" checked />
+                        <label class="form-check-label" for="flexSwitchCheckChecked"></label>
+                    </div>
+                </div> --}}
                 <div class="col-md-12">
                     <label for="Ring" class="">Ring Image</label>
                     <input type="file" name="ring_image" id="ring_image" class="form-control">
@@ -128,17 +160,17 @@
     </div>
 @endsection
 @section('script')
-<script>
-    CKEDITOR.replace("ckplot1");
-    $(document).on('change','#ImageType',function(){
-        var type = $(this).val();
-        if(type == 2){
-            $('.imagelink').removeClass('d-none');
-            $('.upload').addClass('d-none');
-        }else{
-            $('.upload').removeClass('d-none');
-            $('.imagelink').addClass('d-none');
-        }
-    });
-</script>
+    <script>
+        CKEDITOR.replace("ckplot1");
+        $(document).on('change', '#ImageType', function() {
+            var type = $(this).val();
+            if (type == 2) {
+                $('.imagelink').removeClass('d-none');
+                $('.upload').addClass('d-none');
+            } else {
+                $('.upload').removeClass('d-none');
+                $('.imagelink').addClass('d-none');
+            }
+        });
+    </script>
 @endsection

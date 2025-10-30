@@ -6,6 +6,9 @@
     <div class="card-body">
         <div class="d-md-flex gap-4 align-items-center">
             <h4 class="mb-0">Edit Profile</h4>
+            <div class="ms-auto">
+                <a href="{{route('admin.view.profile')}}" class="btn gc_btn">Go Back</a>
+            </div>
         </div>
     </div>
 </div>
@@ -17,9 +20,9 @@
                     <p class="alert
                     {{ Session::get('alert-class', 'alert-danger') }}">{{Session::get('alert') }}</p>
                 @endif
-                <form action="" method="POST" class="row g-3" enctype="multipart/form-data">
+                <form action="{{ route('save.profile') }}" method="POST" class="row g-3" enctype="multipart/form-data">
                 @csrf
-                    <input type="hidden" name="hidden_id" value="">
+                    <input type="hidden" name="hidden_id" value="{{ $user->id }}">
                     <div class="col-md-6">
                         <label for="image" class="form-label">Profile Image</label>
                         <input class="form-control" type="file" id="image" name="image">
@@ -35,27 +38,27 @@
                             $image = URL::asset('assets/user-profile.png');
                         }
                         ?>
-                            <input type="hidden" name="uploded_image" value="">
-                            <img id="preview-image-before-upload" class="br-50" src="{{url('/assets/images/users/avatar-6.jpg')}}"
+                            <input type="hidden" name="uploded_image" value="{{ $user->image }}">
+                            <img id="preview-image-before-upload" class="br-50" src="{{ $image }}"
                             alt="" style="height: 100px; width:100px;">
                     </div>
                     <div class="col-12">
                         <label for="Name" class="form-label">Name <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" name="name" id="Name" placeholder="Name" value="Testing">
+                        <input type="text" class="form-control" name="name" id="Name" placeholder="Name" value="{{ $user->name }}">
                         @if ($errors->has('name'))
                             <span class="text-danger">{{ $errors->first('department_name') }}</span>
                         @endif
                     </div>
                     <div class="col-12">
                         <label for="Email" class="form-label">Email <span class="text-danger">*</span></label>
-                        <input type="email" class="form-control" name="email" id="Email" placeholder="Email" value="testing123@gmail.com">
+                        <input type="email" class="form-control" name="email" id="Email" placeholder="Email" value="{{ $user->email }}">
                         @if ($errors->has('email'))
                             <span class="text-danger">{{ $errors->first('email') }}</span>
                         @endif
                     </div>
                     <div class="col-12">
                         <label for="Phone" class="form-label">Phone</label>
-                        <input type="text" class="form-control" name="phone" id="Phone" placeholder="Phone Number" value="9876543210">
+                        <input type="text" class="form-control" name="phone" id="Phone" placeholder="Phone Number" value="{{ $user->phone }}">
                         @if ($errors->has('phone'))
                             <span class="text-danger">{{ $errors->first('phone') }}</span>
                         @endif
@@ -69,7 +72,7 @@
                     </div> --}}
                     <div class="col-12">
                         <label for="Phone" class="form-label">Address</label>
-                        <textarea class="form-control" name="address" id="address" placeholder="Address"></textarea>
+                        <textarea class="form-control" name="address" id="address" placeholder="Address">{{ $user->address }}</textarea>
                         @if ($errors->has('address'))
                             <span class="text-danger">{{ $errors->first('address') }}</span>
                         @endif
@@ -85,7 +88,7 @@
         <div class="card">
             <div class="card-body m-2">
                 <h5>Change Password</h5>
-                <form id="change-password-form" name="change-password-form" action="" method="POST">
+                <form id="change-password-form" name="change-password-form" action="{{ route('admin.change.password') }}" method="POST">
                     @csrf
                     <div class="col-md-12">
                         <div class="form-group mb-2">
@@ -109,7 +112,7 @@
                                 <span class="text-danger">{{ $errors->first('new_confirm_password') }}</span>
                             @endif
                         </div>
-                        <input type="hidden" name="user_id" value="">
+                        <input type="hidden" name="user_id" value="{{$user->id}}">
                         <button type="submit" class="btn btn-primary"> Change Password </button>
                     </div>
                 </form>

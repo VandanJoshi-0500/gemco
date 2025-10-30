@@ -21,6 +21,7 @@
                         <th>Name</th>
                         <th>OrderNo</th>
                         <th>Status</th>
+                        <th>ShowinDropdown</th>
                         <th>UGITerm</th>
                         <th class="text-end">Action</th>
                     </tr>
@@ -34,6 +35,13 @@
                                 <td data-header="OrderNo">{{$collection->order_no}}</td>
                                 <td data-header="Status">
                                     @if ($collection->status == 1)
+                                        <div class="badge bg-success">Active</div>
+                                    @else
+                                        <div class="badge bg-danger">Deactive</div>
+                                    @endif
+                                </td>
+                                <td data-header="ShowinDropdown">
+                                    @if ($collection->showindropdown == 1)
                                         <div class="badge bg-success">Active</div>
                                     @else
                                         <div class="badge bg-danger">Deactive</div>

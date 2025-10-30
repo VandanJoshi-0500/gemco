@@ -28,6 +28,73 @@
                         <span class="text-danger">{{ $errors->first('sku') }}</span>
                     @endif
                 </div>
+
+                <div class="col-md-6 ">
+                    <label for="Color" class="form-label">Color</label>
+                    <input type="text" class="form-control" name="color" id="Color" value="{{old('color')}}" placeholder="" />
+                    @if ($errors->has('color'))
+                        <span class="text-danger">{{ $errors->first('color') }}</span>
+                    @endif
+                </div>
+
+                <div class="col-md-6 ">
+                    <label for="Size" class="form-label">Size</label>
+                    <input type="text" class="form-control" name="size" id="Size" value="{{old('size')}}" placeholder="" />
+                    @if ($errors->has('size'))
+                        <span class="text-danger">{{ $errors->first('size') }}</span>
+                    @endif
+                </div>
+
+
+                <div class="col-md-6 ">
+                    <label for="Hsncode" class="form-label">Hsn_Code</label>
+                    <input type="text" class="form-control" name="hsn_code" id="Hsncode" value="{{old('hsn_code')}}" placeholder="" />
+                    @if ($errors->has('hsn_code'))
+                        <span class="text-danger">{{ $errors->first('hsn_code') }}</span>
+                    @endif
+                </div>
+
+                <div class="col-md-6 ">
+                    <label for="Category" class="form-label">Category <span class="text-danger">*</span></label>
+                    <select class="form-control" name="category" id="Category">
+                        <option value="0">Select Category</option>
+                        @if (count($parent_categories)>0)
+                            @foreach ($parent_categories as $item)
+                                <?php
+                                    $childs = DB::table('categories')->where('parent',$item->id)->get();
+                                ?>
+                                @if (count($childs)>0)
+                                    <optgroup label="{{$item->name}}">
+                                        @foreach ($childs as $child)
+                                            <option value="{{$child->id}}">{{$child->name}}</option>
+                                        @endforeach
+                                    </optgroup>
+                                @else
+                                    <option value="{{$item->id}}">{{$item->name}}</option>
+                                @endif
+                            @endforeach
+                        @endif
+                    </select>
+                    @if ($errors->has('category'))
+                        <span class="text-danger">{{ $errors->first('category') }}</span>
+                    @endif
+                </div>
+
+                <div class="col-md-6">
+                    <label for="Collection" class="form-label">Subcategory</label>
+                    <select class="form-control" name="subcategory" id="Subcategory">
+                        <option value="0">Select Subcategory</option>
+                        @if (count($subcategories) > 0)
+                            @foreach ($subcategories as $subcategory)
+                                <option value="{{ $subcategory->id }}">{{ $subcategory->name }}</option>
+                            @endforeach
+                        @endif
+                    </select>
+                    @if ($errors->has('subcategory'))
+                        <span class="text-danger">{{ $errors->first('subcategory') }}</span>
+                    @endif
+                </div>
+
                 <div class="col-md-6 ">
                     <label for="Collection" class="form-label">Collection</label>
                     <select class="form-control" name="collection" id="Collection">
@@ -42,60 +109,38 @@
                         <span class="text-danger">{{ $errors->first('collection') }}</span>
                     @endif
                 </div>
-                <div class="col-md-6 ">
-                    <label for="Category" class="form-label">Category</label>
-                    <select class="form-control" name="categories" id="Category">
-                        <option value="0">Select Category</option>
-                        @if (count($parent_categories)>0)
-                        @foreach ($parent_categories as $item)
-                            <?php
-                                $childs = DB::table('categories')->where('parent',$item->id)->get();
-                            ?>
-                            @if (count($childs)>0)
-                                <optgroup label="{{$item->name}}">
-                                    @foreach ($childs as $child)
-                                        <option value="{{$child->id}}">{{$child->name}}</option>
-                                    @endforeach
-                                </optgroup>
-                            @else
-                                <option value="{{$item->id}}">{{$item->name}}</option>
-                            @endif
-                        @endforeach
-                    @endif
+
+                <div class="col-md-6">
+                    <label for="SecoundaryCollection1" class="form-label">Secondary Collection 1</label>
+                    <select class="form-control" name="secoundary_collection_1" id="SecoundaryCollection1">
+                        <option value="0">Select Secondary Collection 1</option>
+                        @if (count($secoundary_collections_1) > 0)
+                            @foreach ($secoundary_collections_1 as $secoundary_collection_1)
+                                <option value="{{ $secoundary_collection_1->id }}">{{ $secoundary_collection_1->secoundary_collection_1 }}</option>
+                            @endforeach
+                        @endif
                     </select>
-                    @if ($errors->has('collection'))
-                        <span class="text-danger">{{ $errors->first('collection') }}</span>
+                    @if ($errors->has('secoundary_collection_1'))
+                        <span class="text-danger">{{ $errors->first('secoundary_collection_1') }}</span>
                     @endif
                 </div>
-                <div class="col-md-12 ">
-                    <label for="description" class="form-label">Description</label>
-                    <textarea class="form-control" name="long_description" rows="5" id="description" value="{{old('long_description')}}" placeholder="" >{{old('long_description')}}</textarea>
-                    @if ($errors->has('long_description'))
-                        <span class="text-danger">{{ $errors->first('long_description') }}</span>
+
+                <div class="col-md-6">
+                    <label for="SecoundaryCollection2" class="form-label">Secondary Collection 2</label>
+                    <select class="form-control" name="secoundary_collection_2" id="SecoundaryCollection2">
+                        <option value="0">Select Secondary Collection 2</option>
+                        @if (count($secoundary_collections_2) > 0)
+                            @foreach ($secoundary_collections_2 as $secoundary_collection_2)
+                                <option value="{{ $secoundary_collection_2->id }}">{{ $secoundary_collection_2->secoundary_collection_2 }}</option>
+                            @endforeach
+                        @endif
+                    </select>
+                    @if ($errors->has('secoundary_collection_2'))
+                        <span class="text-danger">{{ $errors->first('secoundary_collection_2') }}</span>
                     @endif
                 </div>
-                <div class="col-md-12 ">
-                    <label for="description" class="form-label">Description 2</label>
-                    <textarea class="form-control" name="long_description2" rows="5" id="description" value="{{old('long_description')}}" placeholder="" >{{old('long_description2')}}</textarea>
-                    @if ($errors->has('long_description2'))
-                        <span class="text-danger">{{ $errors->first('long_description2') }}</span>
-                    @endif
-                </div>
-                <div class="col-md-12 ">
-                    <label for="description" class="form-label">Description 3</label>
-                    <textarea class="form-control" name="long_description3" rows="5" id="description" value="{{old('long_description')}}" placeholder="" >{{old('long_description3')}}</textarea>
-                    @if ($errors->has('long_description3'))
-                        <span class="text-danger">{{ $errors->first('long_description3') }}</span>
-                    @endif
-                </div>
-                <div class="col-md-12">
-                    <label for="short_description" class="form-label">Short Description</label>
-                    <textarea class="form-control" name="short_description" rows="5" id="description1" value="{{old('short_description')}}" placeholder="" >{{old('short_description')}}</textarea>
-                    @if ($errors->has('short_description'))
-                        <span class="text-danger">{{ $errors->first('short_description') }}</span>
-                    @endif
-                </div>
-                <div class="col-md-12">
+
+                <div class="col-md-6">
                     <label for="Price" class="form-label">Price <span class="text-danger">*</span></label>
                     <input type="number" class="form-control" name="price" id="Price" value="{{old('price')}}" placeholder="" />
                     @if ($errors->has('price'))
@@ -116,6 +161,7 @@
                         <span class="text-danger">{{ $errors->first('tag_price') }}</span>
                     @endif
                 </div>
+
                 <div class="col-md-6">
                     <label for="stockQuantity" class="form-label">Quantity In Stock</label>
                     <input type="number" class="form-control" name="quantity_stock" min="0" id="stockQuantity" value="{{old('quantity_stock')}}" placeholder="" />
@@ -123,15 +169,212 @@
                         <span class="text-danger">{{ $errors->first('quantity_stock') }}</span>
                     @endif
                 </div>
+
                 <div class="col-md-6">
-                    <label for="memoQuantity" class="form-label">Quantity In Memo</label>
-                    <input type="number" class="form-control" name="quantity_memo" min="0" id="memoQuantity" value="{{old('quantity_memo')}}" placeholder="" />
-                    @if ($errors->has('quantity_memo'))
-                        <span class="text-danger">{{ $errors->first('quantity_memo') }}</span>
+                    <label for="Goldweight" class="form-label">Gold Weight</label>
+                    <input type="text" class="form-control" name="gold_weight" id="Goldweight" value="{{old('gold_weight')}}" placeholder="" />
+                    @if ($errors->has('gold_weight'))
+                        <span class="text-danger">{{ $errors->first('gold_weight') }}</span>
+                    @endif
+                </div>
+
+                <div class="col-md-6">
+                    <label for="Silverweight" class="form-label">Silver Weight</label>
+                    <input type="text" class="form-control" name="silver_weight" id="Silverweight" value="{{old('silver_weight')}}" placeholder="" />
+                    @if ($errors->has('silver_weight'))
+                        <span class="text-danger">{{ $errors->first('silver_weight') }}</span>
+                    @endif
+                </div>
+
+                <div class="col-md-6">
+                    <label for="Diamondweight" class="form-label">Diamond Weight</label>
+                    <input type="text" class="form-control" name="diamond_weight" id="Diamondweight" value="{{old('diamond_weight')}}" placeholder="" />
+                    @if ($errors->has('diamond_weight'))
+                        <span class="text-danger">{{ $errors->first('diamond_weight') }}</span>
+                    @endif
+                </div>
+
+                <div class="col-md-6">
+                    <label for="Diamondgrade" class="form-label">Diamond Grade</label>
+                    <input type="text" class="form-control" name="diamond_grade" id="Diamondgrade" value="{{old('diamond_grade')}}" placeholder="" />
+                    @if ($errors->has('diamond_grade'))
+                        <span class="text-danger">{{ $errors->first('diamond_grade') }}</span>
+                    @endif
+                </div>
+
+                <div class="col-md-6">
+                    <label for="Gemstone1" class="form-label">Gemstone Name 1</label>
+                    <input type="text" class="form-control" name="gemstone_name_1" id="Gemstone1" value="{{old('gemstone_name_1')}}" placeholder="" />
+                    @if ($errors->has('gemstone_name_1'))
+                        <span class="text-danger">{{ $errors->first('gemstone_name_1') }}</span>
+                    @endif
+                </div>
+
+                <div class="col-md-6">
+                    <label for="Gemstoneweight1" class="form-label">Gemstone Weight 1</label>
+                    <input type="text" class="form-control" name="gemstone_weight_1" id="Gemstoneweight1" value="{{old('gemstone_weight_1')}}" placeholder="" />
+                    @if ($errors->has('gemstone_weight_1'))
+                        <span class="text-danger">{{ $errors->first('gemstone_weight_1') }}</span>
+                    @endif
+                </div>
+
+                <div class="col-md-6">
+                    <label for="Gemstone2" class="form-label">Gemstone Name 2</label>
+                    <input type="text" class="form-control" name="gemstone_name_2" id="Gemstone2" value="{{old('gemstone_name_2')}}" placeholder="" />
+                    @if ($errors->has('gemstone_name_2'))
+                        <span class="text-danger">{{ $errors->first('gemstone_name_2') }}</span>
+                    @endif
+                </div>
+
+                <div class="col-md-6">
+                    <label for="Gemstoneweight2" class="form-label">Gemstone Weight 2</label>
+                    <input type="text" class="form-control" name="gemstone_weight_2" id="Gemstoneweight2" value="{{old('gemstone_weight_2')}}" placeholder="" />
+                    @if ($errors->has('gemstone_weight_2'))
+                        <span class="text-danger">{{ $errors->first('gemstone_weight_2') }}</span>
+                    @endif
+                </div>
+
+                <div class="col-md-6">
+                    <label for="Gemstone3" class="form-label">Gemstone Name 3</label>
+                    <input type="text" class="form-control" name="gemstone_name_3" id="Gemstone3" value="{{old('gemstone_name_3')}}" placeholder="" />
+                    @if ($errors->has('gemstone_name_3'))
+                        <span class="text-danger">{{ $errors->first('gemstone_name_3') }}</span>
+                    @endif
+                </div>
+
+                <div class="col-md-6">
+                    <label for="Gemstoneweight3" class="form-label">Gemstone Weight 3</label>
+                    <input type="text" class="form-control" name="gemstone_weight_3" id="Gemstoneweight3" value="{{old('gemstone_weight_3')}}" placeholder="" />
+                    @if ($errors->has('gemstone_weight_3'))
+                        <span class="text-danger">{{ $errors->first('gemstone_weight_3') }}</span>
+                    @endif
+                </div>
+
+                <div class="col-md-6">
+                    <label for="Othergemstones" class="form-label">Other Gemstones</label>
+                    <input type="text" class="form-control" name="other_gemstones" id="Othergemstones" value="{{old('other_gemstones')}}" placeholder="" />
+                    @if ($errors->has('other_gemstones'))
+                        <span class="text-danger">{{ $errors->first('other_gemstones') }}</span>
+                    @endif
+                </div>
+
+                <div class="col-md-6">
+                    <label for="OthergemstonesWeight" class="form-label">Other Gemstone Weight</label>
+                    <input type="text" class="form-control" name="other_gemstone_weight" id="OthergemstonesWeight" value="{{old('other_gemstone_weight')}}" placeholder="" />
+                    @if ($errors->has('other_gemstone_weight'))
+                        <span class="text-danger">{{ $errors->first('other_gemstone_weight') }}</span>
+                    @endif
+                </div>
+
+                <div class="col-md-6">
+                    <label for="Fossilname" class="form-label">Fossil Name</label>
+                    <input type="text" class="form-control" name="fossil_name" id="Fossilname" value="{{old('fossil_name')}}" placeholder="" />
+                    @if ($errors->has('fossil_name'))
+                        <span class="text-danger">{{ $errors->first('fossil_name') }}</span>
+                    @endif
+                </div>
+
+                <div class="col-md-6">
+                    <label for="Fossilweight" class="form-label">Fossil Weight</label>
+                    <input type="text" class="form-control" name="fossil_weight" id="Fossilweight" value="{{old('fossil_weight')}}" placeholder="" />
+                    @if ($errors->has('fossil_weight'))
+                        <span class="text-danger">{{ $errors->first('fossil_weight') }}</span>
+                    @endif
+                </div>
+
+                <div class="col-md-6">
+                    <label for="Grossweight" class="form-label">Gross Weight</label>
+                    <input type="text" class="form-control" name="gross_weight" id="Grossweight" value="{{old('gross_weight')}}" placeholder="" />
+                    @if ($errors->has('gross_weight'))
+                        <span class="text-danger">{{ $errors->first('gross_weight') }}</span>
+                    @endif
+                </div>
+
+                <div class="col-md-6">
+                    <label for="Totalgemstoneweight" class="form-label">Total Gemstone Weight</label>
+                    <input type="text" class="form-control" name="total_gemstone_weight" id="Totalgemstoneweight" value="{{old('total_gemstone_weight')}}" placeholder="" />
+                    @if ($errors->has('total_gemstone_weight'))
+                        <span class="text-danger">{{ $errors->first('total_gemstone_weight') }}</span>
+                    @endif
+                </div>
+
+                <div class="col-md-6">
+                    <label for="Gemstonetype" class="form-label">Gemstone Type</label>
+                    <input type="text" class="form-control" name="gemstone_type" id="Gemstonetype" value="{{old('gemstone_type')}}" placeholder="" />
+                    @if ($errors->has('gemstone_type'))
+                        <span class="text-danger">{{ $errors->first('gemstone_type') }}</span>
+                    @endif
+                </div>
+
+                <div class="col-md-6">
+                    <label for="Diamondcut" class="form-label">Diamond Cut</label>
+                    <input type="text" class="form-control" name="diamond_cut" id="Diamondcut" value="{{old('diamond_cut')}}" placeholder="" />
+                    @if ($errors->has('diamond_cut'))
+                        <span class="text-danger">{{ $errors->first('diamond_cut') }}</span>
+                    @endif
+                </div>
+
+                <div class="col-md-12">
+                    <label for="Diamondshape" class="form-label">Diamond Shape</label>
+                    <input type="text" class="form-control" name="diamond_shape" id="Diamondshape" value="{{old('diamond_shape')}}" placeholder="" />
+                    @if ($errors->has('diamond_shape'))
+                        <span class="text-danger">{{ $errors->first('diamond_shape') }}</span>
+                    @endif
+                </div>
+
+                <div class="col-md-12 ">
+                    <label for="description" class="form-label">Description <span class="text-danger">*</span></label>
+                    <textarea class="form-control" name="long_description" rows="5" id="description" value="{{old('long_description')}}" placeholder="" >{{old('long_description')}}</textarea>
+                    @if ($errors->has('long_description'))
+                        <span class="text-danger">{{ $errors->first('long_description') }}</span>
+                    @endif
+                </div>
+                <div class="col-md-12 ">
+                    <label for="description" class="form-label">Description 2</label>
+                    <textarea class="form-control" name="long_description_2" rows="5" id="description" value="{{old('long_description')}}" placeholder="" >{{old('long_description_2')}}</textarea>
+                    @if ($errors->has('long_description_2'))
+                        <span class="text-danger">{{ $errors->first('long_description_2') }}</span>
+                    @endif
+                </div>
+                <div class="col-md-12 ">
+                    <label for="description" class="form-label">Description 3</label>
+                    <textarea class="form-control" name="long_description_3" rows="5" id="description" value="{{old('long_description_3')}}" placeholder="" >{{old('long_description_3')}}</textarea>
+                    @if ($errors->has('long_description3'))
+                        <span class="text-danger">{{ $errors->first('long_description_3') }}</span>
                     @endif
                 </div>
                 <div class="col-md-12">
-                    <label for="Image" class="form-label" >Image Type</label>
+                    <label for="short_description" class="form-label">Short Description</label>
+                    <textarea class="form-control" name="short_description" rows="5" id="description1" value="{{old('short_description')}}" placeholder="" >{{old('short_description')}}</textarea>
+                    @if ($errors->has('short_description'))
+                        <span class="text-danger">{{ $errors->first('short_description') }}</span>
+                    @endif
+                </div>
+
+                <div class="col-md-6">
+                    <label for="MetaTitle" class="form-label">Meta_Text</label>
+                    <input type="text" class="form-control" name="meta_title" id="MetaTitle" value="{{old('meta_title')}}" placeholder="" />
+                    @if ($errors->has('meta_title'))
+                        <span class="text-danger">{{ $errors->first('meta_title') }}</span>
+                    @endif
+                </div>
+                <div class="col-md-6">
+                    <label for="MetaDescription" class="form-label">Meta_Description</label>
+                    <input type="text" class="form-control" name="meta_description" id="MetaDescription" value="{{old('meta_description')}}" placeholder="" />
+                    @if ($errors->has('meta_description'))
+                        <span class="text-danger">{{ $errors->first('meta_description') }}</span>
+                    @endif
+                </div>
+                <div class="col-md-12">
+                    <label for="Keyword" class="form-label">Keywords</label>
+                    <input type="text" class="form-control" name="keyword" id="Keyword" value="{{old('keyword')}}" placeholder="" />
+                    @if ($errors->has('keyword'))
+                        <span class="text-danger">{{ $errors->first('keyword') }}</span>
+                    @endif
+                </div>
+
+                <div class="col-md-12">
+                    <label for="Image" class="form-label">Image Type</label>
                     <select name="image_type" id="ImageType" class="form-control">
                         <option value="1" selected>Upload Image</option>
                         <option value="2">Image Link</option>
@@ -140,71 +383,39 @@
                         <span class="text-danger">{{ $errors->first('parent') }}</span>
                     @endif
                 </div>
-                <div class="row upload mt-3">
-                    <div class="col-md-10">
-                        <label for="Image" class="form-label" style="top:0px !important;">Image</label>
-                        <input type="file" class="form-control" name="image" id="Image" />
-                        @if ($errors->has('image'))
-                            <span class="text-danger">{{ $errors->first('image') }}</span>
-                        @endif
+
+                @for ($i = 1; $i <= 5; $i++)
+                    <div class="row upload mt-3">
+                        <div class="col-md-10">
+                            <label for="Image{{ $i }}" class="form-label" style="top:0px !important;">Image {{ $i }}</label>
+                            <input type="file" class="form-control" name="image{{ $i }}" id="Image{{ $i }}" />
+                            @if ($errors->has('image'.$i))
+                                <span class="text-danger">{{ $errors->first('image'.$i) }}</span>
+                            @endif
+                        </div>
+                        <div class="col-md-2">
+                            <img src="{{url('/')}}/assets/Images/upload.png" class="product_preview upload w-50" id="product_image{{ $i }}">
+                        </div>
                     </div>
-                    <div class="col-md-2">
-                        <img src="{{url('/')}}/assets/Images/upload.png" class="product_preview upload w-50" id="product_image">
+                    <div class="col-md-12 imagelink d-none">
+                        <div class="col-md-12">
+                            <label for="ImageLink{{ $i }}" class="form-label">Image Link {{ $i }}</label>
+                            <input type="text" class="form-control" name="image_link{{ $i }}" id="ImageLink{{ $i }}" value="{{old('image_link'.$i)}}" placeholder="" />
+                            @if ($errors->has('image'.$i))
+                                <span class="text-danger">{{ $errors->first('image'.$i) }}</span>
+                            @endif
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-12 imagelink d-none">
-                    <div class="col-md-12">
-                        <label for="ImageLink" class="form-label">Image Link</label>
-                        <input type="text" class="form-control" name="image_link" id="ImageLink" value="{{old('image_link')}}" placeholder="" />
-                        @if ($errors->has('image'))
-                            <span class="text-danger">{{ $errors->first('image') }}</span>
-                        @endif
+                @endfor
+
+                <div class="col-md-6">
+                    <label for="Status" class="">Status <span class="text-danger">*</span></label>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" name="status" id="flexSwitchCheckChecked" checked />
+                        <label class="form-check-label" for="flexSwitchCheckChecked"></label>
                     </div>
                 </div>
 
-                {{-- for thumbnail --}}
-
-                <div class="col-md-12">
-                    <label for="Image" class="form-label" >Thumbnail Image Type</label>
-                    <select name="thumbnail_image_type" id="ThumbnailImageType" class="form-control">
-                        <option value="1" selected>Upload Image</option>
-                        <option value="2">Image Link</option>
-                    </select>
-                    @if ($errors->has('thumbnail_image_type'))
-                        <span class="text-danger">{{ $errors->first('thumbnail_image_type') }}</span>
-                    @endif
-                </div>
-                <div class="row Thumbnailupload mt-3">
-                    <div class="col-md-10">
-                        <label for="Image" class="form-label" style="top:0px !important;">Thumbnail Image</label>
-                        <input type="file" class="form-control" name="thumbnail_image" id="TImage" />
-                        @if ($errors->has('thumbnail_image'))
-                            <span class="text-danger">{{ $errors->first('thumbnail_image') }}</span>
-                        @endif
-                    </div>
-                    <div class="col-md-2">
-                        <img src="{{url('/')}}/assets/Images/upload.png" class="thumbnail_product_preview upload w-50" id="thumbnail_product_image">
-                    </div>
-                </div>
-                <div class="col-md-12 thumbnail_imagelink d-none">
-                    <div class="col-md-12">
-                        <label for="ImageLink" class="form-label">Thumbnail Image Link</label>
-                        <input type="text" class="form-control" name="thumbnail_image_link" id="ImageLink" value="{{old('thumbnail_image_link')}}" placeholder="" />
-                        @if ($errors->has('thumbnail_image_link'))
-                            <span class="text-danger">{{ $errors->first('thumbnail_image_link') }}</span>
-                        @endif
-                    </div>
-                </div>
-
-                <div class="col-md-6 d-none">
-                    <div class="form-check d-flex align-items-center">
-                        <input type="checkbox" class="form-check-input" name="price_xml" id="priceXml" />
-                        <label for="priceXml" class="form-label ms-2 mb-0">Do you want price updation with xml changes?</label>
-                    </div>
-                    @if ($errors->has('price_xml'))
-                        <span class="text-danger">{{ $errors->first('price_xml') }}</span>
-                    @endif
-                </div>
                 <div class="col-12">
                     <button type="submit" class="btn gc_btn mt-3">
                         Submit
@@ -215,42 +426,48 @@
     </div>
 </div>
 @endsection
+
 @section('script')
-    <script>
-         $('#Image').change(function(){
-            let reader = new FileReader();
-            reader.onload = (e) => {
-                $('.product_preview').attr('src', e.target.result);
-            }
-            reader.readAsDataURL(this.files[0]);
-        });
-        $(document).on('change','#ImageType',function(){
+<script>
+    $(document).ready(function() {
+        for (let i = 1; i <= 5; i++) {
+            $('#Image' + i).change(function() {
+                let reader = new FileReader();
+                reader.onload = (e) => {
+                    $('#product_image' + i).attr('src', e.target.result);
+                }
+                reader.readAsDataURL(this.files[0]);
+            });
+        }
+
+        $(document).on('change', '#ImageType', function() {
             var type = $(this).val();
-            if(type == 2){
+            if (type == 2) {
                 $('.imagelink').removeClass('d-none');
                 $('.upload').addClass('d-none');
-            }else{
+            } else {
                 $('.upload').removeClass('d-none');
                 $('.imagelink').addClass('d-none');
             }
         });
 
-        $('#TImage').change(function(){
-            let reader = new FileReader();
-            reader.onload = (e) => {
-                $('.thumbnail_product_preview').attr('src', e.target.result);
+        $(document).on('change', '#Category', function() {
+            var category_id = $(this).val();
+            if (category_id) {
+                $.ajax({
+                    url: '/get-subcategories/' + category_id,
+                    method: 'GET',
+                    success: function(response) {
+                        var subcategoryDropdown = $('#Subcategory');
+                        subcategoryDropdown.empty();
+                        subcategoryDropdown.append('<option value="0">Select Subcategory</option>');
+                        $.each(response.subcategories, function(index, subcategory) {
+                            subcategoryDropdown.append('<option value="' + subcategory.id + '">' + subcategory.name + '</option>');
+                        });
+                    }
+                });
             }
-            reader.readAsDataURL(this.files[0]);
         });
-        $(document).on('change','#ThumbnailImageType',function(){
-            var type = $(this).val();
-            if(type == 2){
-                $('.thumbnail_imagelink').removeClass('d-none');
-                $('.Thumbnailupload').addClass('d-none');
-            }else{
-                $('.Thumbnailupload').removeClass('d-none');
-                $('.thumbnail_imagelink').addClass('d-none');
-            }
-        });
-    </script>
+    });
+</script>
 @endsection

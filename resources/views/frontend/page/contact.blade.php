@@ -1,188 +1,102 @@
-
 @extends('frontend.layouts.main')
 
 @section('content')
-
-
-
     <!-- ..........ABOUT TITLE AND BREADCRUMPS.......... -->
-    <div class="container-fluid AboutTitleBreadCrumps">
-        <div class="row container bg-transparent">
-            <div class="col-12 text-center bg-transparent">
-                <h1 class=" bg-transparent">Contact Us</h1>
-            </div>
-            <div class="col-12 text-center mt-2 bg-transparent">
-                <nav aria-label="breadcrumb" class="bg-transparent">
-                    <ul class="breadcrumb justify-content-center bg-transparent">
-                        <li class="breadcrumb-item bg-transparent"><a href="{{url('/home')}}" class="bg-transparent text-dark">Home</a>
-                        </li>
-                        <li class="breadcrumb-item bg-transparent"><a href="#"
-                                class="bg-transparent text-dark">Pages</a>
-                        </li>
-                        <li class="breadcrumb-item bg-transparent" aria-current="page">Contact us</li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </div>
+    @include('frontend.components.dynamic-breadcrumb')
     <!-- ..........ABOUT TITLE AND BREADCRUMPS END.......... -->
 
 
     <!-- ...............CONTACT US MAIN SECTION............. -->
-    <div class="container-fluid text-start py-5 d-flex justify-content-center align-items-center">
-        <div class="row container d-flex justify-content-start align-items-start">
-            <div class="col-md-8">
-                <h1 class="mb-3">Let's connect with us</h1>
-                <p class="text-muted">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                    industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
-                    and
-                    scrambled it to make a type specimen book.
-                </p>
-            </div>
-        </div>
-    </div>
-    <!-- ...............CONTACT US MAIN SECTION END............. -->
-
-
-    <!-- ..... CONTACT FORM ..... -->
-    <div class="container-fluid pb-5 d-flex align-items-center justify-content-center">
-        <div class="row container d-flex align-items-center justify-content-center ContactFormContainer">
-            <div class="col-md-12 bg-transparent">
-                <div class="card p-4 bg-transparent contact-us-card">
-                    <form id="ContactUsForm bg-transparent">
-                        <div class="row mb-3 bg-transparent">
-                            <div class="col-md-6 bg-transparent ">
-                                <input type="text" class="form-control" placeholder="First Name" name="firstname"
-                                    id="firstname">
-                            </div>
-                            <div class="col-md-6 bg-transparent">
-                                <input type="text" class="form-control" placeholder="Last Name" name="lastname"
-                                    id="lastname">
-                            </div>
-                        </div>
-
-                        <div class="row mb-3 bg-transparent">
-                            <div class="col-md-6 bg-transparent">
-                                <input type="tel" class="form-control" placeholder="Your Phone Number" name="phonename"
-                                    id="phonename">
-                            </div>
-                            <div class="col-md-6 bg-transparent">
-                                <input type="email" class="form-control" placeholder="Your Email id" name="email"
-                                    id="email">
-                            </div>
-                        </div>
-
-                        <div class="row mb-3 bg-transparent">
-                            <div class="col-md-6 bg-transparent">
-                                <input type="text" class="form-control" placeholder="Software Service"
-                                    name="softwareservices" id="softwareservices">
-                            </div>
-                            <div class="col-md-6 bg-transparent">
-                                <select class="form-select" name="interest" id="interest">
-                                    <option selected disabled>What are you most interested in?</option>
-                                    <option value="saab">Saab</option>
-                                    <option value="mercedes">Mercedes</option>
-                                    <option value="audi">Audi</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="mb-3">
-                            <textarea class="form-control" id="message" name="message" rows="4"
-                                placeholder="Message Here"></textarea>
-                        </div>
-                        <div class="d-flex align-items-center justify-content-between mt-5 bg-transparent">
-                            <div class="form-check mb-0 bg-transparent">
-                                <input class="form-check-input bg-transparent" type="checkbox" id="Agree" name="Agree"
-                                    value="Agree" >
-                                <label class="form-check-label bg-transparent contact-us-checkbox" for="Agree">
-                                    I Agree to terms & Conditions
-                                </label>
-                            </div>
-                            <button type="submit" class="btn contact-us-btn" id="submitBtn">Let's Talk</button>
-                        </div>
-
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- ..... CONTACT FORM END..... -->
-
-
-    <!-- ..........CONTACT US HEAD OFFICE ............. -->
-    <div class="container-fluid text-start py-5 d-flex align-items-center justify-content-center">
-        <div class="row container  d-flex align-items-center justify-content-center">
-            <div class="col-md-12">
-                <p class="fs-5 ">Contact us</p>
-                <h1 class="">Head Office Location</h1>
-            </div>
-        </div>
-    </div>
-    <!-- ..........CONTACT US HEAD OFFICE END ............. -->
-
-
-    <!-- ....CONTACT US DETAILS.... -->
-    <div class="container-fluid d-flex align-items-center justify-content-center">
-        <div class="row container g-4">
-            <div class="col-md-6 col-lg-3 ">
-                <div class="p-2 rounded d-flex align-items-start justify-content-start gap-3 ">
-                    <div class="mb-3 contact-us-head-office-icon">
-                        <i class="fa-solid fa-location-dot fa-2x contact-us-icon"></i>
+    <div class="container contact-section bg-transparent">
+        {{-- <h2 class="text-center mb-5 bg-transparent">CONTACT US</h2> --}}
+        <div class="row bg-transparent">
+            <!-- Contact Details -->
+            <div class="col-md-6 bg-transparent left-side-main-container ">
+                <div class="contact-us-left-side-details-section bg-transparent pb-3">
+                    <div class="bg-transparent w-50">
+                        <a href="https://maps.app.goo.gl/ZpUZpdJPEhs3CJ2G7" target="_blank" class="bg-transparent contact-us-icons-container w-100"> <i
+                                class="fa-solid fa-location-dot contact-icon"></i>
+                            <p> G1-15, SEZ Phase-1, RIICO Industrial Area, Sitapura, Jaipur-302022, Rajasthan (INDIA)</p>
+                        </a>
                     </div>
-                    <div class="contact-us-head-office-text">
-                        <h5>Our Location</h5>
-                        <p class="head-office-text">G1-15, SEZ Phase-1, RIICO Industrial Area, Sitapura, Jaipur-302022, Rajasthan (INDIA)</p>
+                    <div class="bg-transparent ">
+                        <a href="tel:+91 9001255222" class="contact-us-icons-container"><i
+                                class="fa fa-phone contact-icon"></i>
+                            <span>+91 9001255222</span>
+                        </a>
+                        <a class="contact-us-icons-container"><i class="fa fa-clock contact-icon"></i>
+                            <p>Mon – Fri / 10:00 AM to 7:00 PM</p>
+                        </a>
+
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=business@gemcodesigns.com" 
+                            target="_blank"
+                            class="contact-us-icons-container bg-transparent text-dark">
+                            <i class="fa-solid fa-envelope contact-icon"></i>
+                            <span>business@gemcodesigns.com</span>
+                        </a>
                     </div>
                 </div>
+                <!-- Google Map -->
+                <div class="map-responsive bg-transparent mt-5">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14246.421545392963!2d75.81721158715818!3d26.788846000000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396dc9a6ca13dc85%3A0x269a8d64af21de9a!2sGemco%20Designs!5e0!3m2!1sen!2sin!4v1729509998059!5m2!1sen!2sin"
+                        width="100%" height="550" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
             </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="p-2 rounded d-flex align-items-center justify-content-center gap-3 ">
+            <!-- Vertical Divider -->
+            <div class="col-md-1 d-none d-md-flex justify-content-center bg-transparent">
+                <div style="border-left: 1px solid #000000; height: 100%;"></div>
+            </div>
+            <!-- Contact Form -->
+            <div class="col-md-5 bg-transparent">
+                @if (session('submitted'))
+                    <div class="alert alert-success">
+                        {{ session('submitted') }}
+                    </div>
+                @endif
+                <form class=" mt-5" action="{{ route('submit.contact.form') }}" method="post">
+                    @csrf
+
                     <div class="mb-3">
-                        <i class="fa-solid fa-phone-volume fa-2x"></i>
+                        <input type="text" name="name" class="form-control" placeholder="Your Name *" required>
+                        @if ($errors->has('name'))
+                            <p class="text-danger">{{ $errors->first('name') }}</p>
+                        @endif
+                        {{-- <input type="text" class="form-control" placeholder="Your Name *" required> --}}
                     </div>
-                    <div class="">
-                        <h5>Mobile Number</h5>
-                        <p class="head-office-text">+91 90012 55222</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="p-2 rounded d-flex align-items-center justify-content-center gap-3 ">
                     <div class="mb-3">
-                        <i class="fa-solid fa-globe fa-2x"></i>
+                        <input type="email" name="email" class="form-control" placeholder="Email Address *"
+                            aria-label="Email" required>
+                        @if ($errors->has('email'))
+                            <p class="text-danger">{{ $errors->first('email') }}</p>
+                        @endif
+                        {{-- <input type="email" class="form-control" placeholder="Email Address *" required> --}}
                     </div>
-                    <div class="">
-                        <h5>Have Queries?</h5>
-                        <p class="head-office-text">business@gemcodesigns.com</p>
+                    <div class="mb-3">
+                        <textarea name="message" id="" cols="30" rows="7" placeholder="Message *" class="form-control"
+                            required></textarea>
+                        @if ($errors->has('message'))
+                            <p class="text-danger">{{ $errors->first('message') }}</p>
+                        @endif
+                        {{-- <textarea class="form-control" rows="6" placeholder="Message *" required></textarea> --}}
                     </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="p-2 rounded d-flex align-items-center justify-content-center gap-3 ">
-                    <div class="mb-3 bg-transparent">
-                        <i class="fa-solid fa-envelope fa-2x"></i>
-                    </div>
-                    <div class="">
-                        <h5>Contact Support</h5>
-                        <p class="head-office-text">info@example.com</p>
-                    </div>
-                </div>
+                    <button type="submit" class="btn submit-btn register-btn">Submit</button>
+                </form>
             </div>
         </div>
     </div>
-    <!-- ....CONTACT US DETAILS END.... -->
-
-
-
-    <!-- ..............COMPANY MAP ............. -->
-    <div class="CompanyMapMainContainer">
-        <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14246.421545392963!2d75.81721158715818!3d26.788846000000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396dc9a6ca13dc85%3A0x269a8d64af21de9a!2sGemco%20Designs!5e0!3m2!1sen!2sin!4v1729509998059!5m2!1sen!2sin"
-            width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </div>
-
-
+@endsection
+@section('script')
+    <script>
+        $('#reload').click(function() {
+            $.ajax({
+                type: 'GET',
+                url: '{{ route('reload-captcha') }}',
+                success: function(data) {
+                    $(".captcha span").html(data.captcha);
+                }
+            });
+        });
+    </script>
 @endsection

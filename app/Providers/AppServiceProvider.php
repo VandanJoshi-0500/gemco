@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Setting;
 use App\Models\Collection;
+use App\Models\Category;
+use App\Models\Product;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -24,21 +26,27 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        view()->composer('*', function ($view)
-        {
+        view()->composer('*', function ($view) {
             if (Auth::check()) {
-                $userid =  Auth::user()->id;
-                $user = User::where('id',$userid)->first();
-                if($user->role == 2){
-                    $users = User::where('id',$userid)->first();
+                $userid = Auth::user()->id;
+                $user = User::where('id', $userid)->first();
+                if ($user->role == 2) {
+                    $users = User::where('id', $userid)->first();
                     $notification = $users->unreadNotifications;
                     view()->share('notifications', $notification);
-                }else{
+                } else {
                 }
-             }
+            }
 
         });
-        $collections = Collection::where('status',1)->where('active',1)->get();
+
+
+        $collections = Collection::where('status', 1)->where('active', 1)->get();
+        $categories = Category::where('status', 1)->where('active', 1)->get();
         view()->share('collections', $collections);
+        view()->share('categories', $categories);
+
+        // Share the products globally with all views
+        View::share('products', Product::all());
     }
 }

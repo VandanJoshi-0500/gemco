@@ -4,7 +4,7 @@
     <div class="card mb-2">
         <div class="card-body">
             <div class="d-md-flex gap-4 align-items-center">
-                <h4 class="mb-0">Hello, Admin </h4>
+                <h4 class="mb-0">Hello, {{ Auth::user()->name }} </h4>
             </div>
         </div>
     </div>
@@ -15,23 +15,36 @@
                     <h5 class="mb-0">My Profile</h5>
                 </div>
                 <div class="card-body text-center mt-3">
-                    <?php $image="{{url('/assets1/Images/users/avatar-1.jpg')}}" ?>
+                    <?php $image = "{{url('/assets1/Images/users/avatar-1.jpg')}}"; ?>
                     {{-- @if (!blank(Auth::user()->image))
                         <img id="image" class="br-50" src="{{ $image }}"
                          alt="" style="height: 100px; width:100px;">
                     @else --}}
-                        <img id="image" class="br-50" src="{{url('/assets/images/users/avatar-6.jpg')}}"
-                        alt="" style="height: 100px; width:100px;">
+
+                    @php
+                        $profileImage = Auth::user()->image;
+                        $imagePath =
+                            !empty($profileImage) && file_exists(public_path('settings/' . $profileImage))
+                                ? asset('settings/' . $profileImage)
+                                : asset('assets/user-profile.png'); // fallback/default image
+                    @endphp
+
+                    {{-- <span class="account-user-avatar">
+                        <img src="{{ $imagePath }}" alt="user-image" width="32" class="rounded-circle">
+                    </span> --}}
+
+                    <img id="image" class="br-50" src="{{ $imagePath }}" alt=""
+                        style="height: 100px; width:100px;">
                     {{-- @endif --}}
 
                     <div class="my-2">
                         {{-- <h4>{{Auth::user()->name}}</h4> --}}
-                        <h4>Admin</h4>
-                        {{-- @if(!blank(Auth::user()->email))<h6><i class="bi bi-envelope"></i><a href="mailto:{{Auth::user()->email}}"> {{Auth::user()->email}} </a></h6>@endif --}}
-                        <h6><i class="bi bi-envelope"></i> admin@admin.com</h6>
-                        {{-- @if(!blank(Auth::user()->phone))<h6><i class="bi bi-phone"></i>{{Auth::user()->phone}} </h6>@endif --}}
-                        <h6><i class="bi bi-phone"></i> 9876543210</h6>
-                        <a href="{{route('admin.edit.profile')}}" class="btn btn-primary mt-2">Edit Profile</a>
+                        <h4>{{ Auth::user()->name }}</h4>
+                        {{-- @if (!blank(Auth::user()->email))<h6><i class="bi bi-envelope"></i><a href="mailto:{{Auth::user()->email}}"> {{Auth::user()->email}} </a></h6>@endif --}}
+                        <h6><i class="bi bi-envelope"></i> {{ Auth::user()->email }}</h6>
+                        {{-- @if (!blank(Auth::user()->phone))<h6><i class="bi bi-phone"></i>{{Auth::user()->phone}} </h6>@endif --}}
+                        <h6><i class="bi bi-phone"></i> {{ Auth::user()->phone ?? null }}</h6>
+                        <a href="{{ route('admin.edit.profile') }}" class="btn btn-primary mt-2">Edit Profile</a>
                     </div>
                 </div>
             </div>

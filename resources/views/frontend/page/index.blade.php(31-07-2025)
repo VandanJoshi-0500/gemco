@@ -1,0 +1,185 @@
+@extends('frontend.layouts.main')
+
+@section('content')
+    <!-- .....BANNER SECTION..... -->
+    <div class="container-fluid p-0">
+        <div class="hero-section text-center">
+            <img src="{{ url('frontend/Assets/gemcobannernew.png') }}" class="img-fluid w-100" alt="Hero Banner">
+        </div>
+    </div>
+    <!-- .....BANNER SECTION END..... -->
+
+    <!-- ......Trending...... -->
+    <div class="container-fluid trendingsection py-5">
+        <div class="container">
+            <div class="text-center mb-3 DealBTN">
+                <p class="btn fs-4 fw-2 trendingbtn">
+                    Trending
+                </p>
+            </div>
+
+            <div>
+                <p class="trendingtitle pb-5">
+                    A curated edit of our most sought-after pieces, updated regularly to reflect design trends and buyer
+                    demand.
+                    Each selection captures a moment — shaped by what’s resonating in showrooms, trade conversations, and
+                    evolving market moods.
+                </p>
+            </div>
+
+            <div class="category-slider mt-3">
+                <div>
+                    <a href="{{ route('view.by.slug', ['slug' => 'rings']) }}" class="product-category-gallery">
+                        <img src="{{ url('frontend/Assets/HomeCollection/product-category-1.png') }}" class="img-fluid"
+                            alt="Product 1">
+                        <!-- <p>Ring</p> -->
+                    </a>
+                </div>
+                <div>
+                    <a href="{{ route('view.by.slug', ['slug' => 'ear jewelry']) }}" class="product-category-gallery">
+                        <img src="{{ url('frontend/Assets/HomeCollection/product-category-2.png') }}" class="img-fluid"
+                            alt="Product 2">
+                        <!-- <p>Earrings</p> -->
+                    </a>
+                </div>
+                <div>
+                    <a href="{{ route('view.by.slug', ['slug' => 'pendants']) }}" class="product-category-gallery">
+                        <img src="{{ url('frontend/Assets/HomeCollection/product-category-3.png') }}" class="img-fluid"
+                            alt="Product 3">
+                        <!-- <p>Pendants</p> -->
+                    </a>
+                </div>
+                <div>
+                    <a href="{{ route('view.by.slug', ['slug' => 'necklaces']) }}" class="product-category-gallery">
+                        <img src="{{ url('frontend/Assets/HomeCollection/product-category-4.png') }}" class="img-fluid"
+                            alt="Product 4">
+                        <!-- <p>Necklaces</p> -->
+                    </a>
+                </div>
+                <div>
+                    <a href="{{ route('view.by.slug', ['slug' => 'bracelets']) }}" class="product-category-gallery">
+                        <img src="{{ url('frontend/Assets/HomeCollection/product-category-5.png') }}" class="img-fluid"
+                            alt="Product 5">
+                        <!-- <p>Bracelets</p> -->
+                    </a>
+                </div>
+                <div>
+                    <a href="{{ route('view.by.slug', ['slug' => 'findings']) }}" class="product-category-gallery">
+                        <img src="{{ url('frontend/Assets/HomeCollection/product-category-6.png') }}" class="img-fluid"
+                            alt="Product 6">
+                        <!-- <p>Findings</p> -->
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- ......Trending SECTION END...... -->
+
+
+
+    <!-- SUB BANNER -->
+    <div class="sub-banner">
+        <div class=" text-center ">
+            <img src="{{ url('frontend/Assets/HomeCollection/sub-banner.png') }}" class="img-fluid w-100"
+                alt="Hero Banner">
+        </div>
+    </div>
+    <!-- SUB BANNER ENDS -->
+
+    <!-- ......SHOP BY COLLECTION SECTION...... -->
+    <div class="container-fluid shopbycollection py-5">
+        <div class="container">
+            <div class="text-center mb-4 DealBTN">
+                <p class="btn fs-4 fw-2 shopbycollectionbtn">
+                    Shop by Collection
+                </p>
+            </div>
+            <div>
+                <p class="trendingtitle pb-5">
+                    An overview of our design directions — spanning a range of materials, techniques, and styles.
+                    Each collection brings together pieces that speak to different needs, preferences, and occasions.
+                </p>
+            </div>
+
+            <!-- four Cards in a Row -->
+            <div class="row g-4">
+                <!-- Card 1 -->
+                <div class="col-md-6">
+                    <div class="banner"
+                        style="background-image: url('{{ url('frontend/Assets/HomeCollection/designerjwelery.png') }}');">
+                        <div class="overlay-content bg-transparent text-end text-white ">
+                            <!-- <h6 class="bg-transparent text-dark">BEAUTIFUL</h6> -->
+                            <h2 class="bg-transparent text-dark">Designer<br /> Jewelry</h2>
+                            <a href="{{ route('view.by.slug', ['slug' => 'designer jewelry']) }}"
+                                class="shop-link bg-transparent mt-5">Shop Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="col-md-6">
+                    <div class="banner"
+                        style="background-image: url('{{ url('frontend/Assets/HomeCollection/icediamond.png') }}');">
+                        <div class="overlay-content bg-transparent text-end text-white">
+                            <!-- <h6 class="bg-transparent">BEAUTIFUL</h6> -->
+                            <h2 class="bg-transparent text-dark">Ice Diamond</h2>
+                            <a href="{{ route('view.by.slug', ['slug' => 'ice diamond jewelry']) }}"
+                                class="shop-link bg-transparent">Shop Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="col-md-6">
+                    <div class="banner"
+                        style="background-image: url('{{ url('frontend/Assets/HomeCollection/baguette.png') }}');">
+                        <div class="overlay-content bg-transparent text-end text-white">
+                            <!-- <h6 class="bg-transparent">BEAUTIFUL</h6> -->
+                            <h2 class="bg-transparent text-dark">Pave</h2>
+                            <a href="{{ route('view.by.slug', ['slug' => 'PAVE JEWELRY']) }}"
+                                class="shop-link bg-transparent">Shop Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="col-md-6">
+                    <div class="banner"
+                        style="background-image: url('{{ url('frontend/Assets/HomeCollection/solitaire.png') }}');">
+                        <div class="overlay-content bg-transparent text-end text-white">
+                            <!-- <h6 class="bg-transparent">BEAUTIFUL</h6> -->
+                            <h2 class="bg-transparent text-dark">Gemstone</h2>
+                            <a href="{{ route('view.by.slug', ['slug' => 'GEMSTONE JEWELRY']) }}"
+                                class="shop-link bg-transparent">Shop Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ......SHOP BY COLLECTION SECTION END...... -->
+
+    <!-- ..........NEWSLETTER......... -->
+    <div class="container-fluid py-5 FooterTopMAinContainer">
+        <div class=" container bg-transparent">
+            <!-- Input Section -->
+            <div class="mb-3 bg-transparent mobile-footer-topbar-mail-box">
+                <div class="bg-transparent">
+                    <h4 class="mt-2 text-uppercase footer-topbar-newsletter">SUBSCRIBE TO OUR NEWSLETTER</h4>
+                </div>
+                <form action="{{ route('newsletter') }}" method="post">
+                    @csrf
+                    <div class="input-group newsletter-input-group">
+                        <input type="email" name="email" value="{{ old('email') }}"
+                            class="form-control newsletter-input" placeholder="Enter Email Address" required>
+                        <button type="submit" class="btn newsletter-btn">SUBSCRIBE</button>
+                    </div>
+                    @if ($errors->has('email'))
+                        <p class="text-danger mt-2">{{ $errors->first('email') }}</p>
+                    @endif
+                </form>
+            </div>
+        </div>
+    </div>
+@endsection

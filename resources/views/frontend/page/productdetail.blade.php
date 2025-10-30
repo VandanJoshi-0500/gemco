@@ -4,7 +4,7 @@
 @section('content')
 
      <!-- ..........ABOUT TITLE AND BREADCRUMPS.......... -->
-     <div class="container-fluid AboutTitleBreadCrumps">
+     {{-- <div class="container-fluid AboutTitleBreadCrumps">
         <div class="row container bg-transparent">
             <div class="col-12 text-center bg-transparent">
                 <h1 class=" bg-transparent">Product Detail</h1>
@@ -14,15 +14,15 @@
                     <ul class="breadcrumb justify-content-center bg-transparent">
                         <li class="breadcrumb-item bg-transparent"><a href="{{url('/home')}}" class="bg-transparent text-dark">Home</a>
                         </li>
-                        {{-- <li class="breadcrumb-item bg-transparent"><a href="#"
+                        <!-- <li class="breadcrumb-item bg-transparent"><a href="#"
                                 class="bg-transparent text-dark">Pages</a>
-                        </li> --}}
+                        </li> -->
                         <li class="breadcrumb-item bg-transparent" aria-current="page">Tapered Baguette Sapphire Multiple Gemstone Pave Diamond Half-Moon Ring In 18k Yellow Gold</li>
                     </ul>
                 </nav>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- ..........ABOUT TITLE AND BREADCRUMPS END.......... -->
 
 

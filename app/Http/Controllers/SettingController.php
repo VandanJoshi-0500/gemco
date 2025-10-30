@@ -15,33 +15,36 @@ class SettingController extends Controller
         $user = User::first();
         view()->share('setting', $setting);
     }
+
     public function settings(){
         $settings   = Setting::first();
         $page       = 'Settings';
         $icon       = 'setting.png';
         return view('admin/settings/general_settings',compact('page','icon','settings'));
     }
+
     public function company_settings(){
         $settings   = Setting::first();
         $page       = 'Company Settings';
         $icon       = 'setting.png';
         return view('admin/settings/company_settings',compact('page','icon','settings'));
     }
+
     public function email_settings(){
         $settings=Setting::first();
-        $page       = 'Company Settings';
+        $page       = 'Email Settings';
         $icon       = 'setting.png';
         return view('admin/settings/email_settings',compact('settings','page','icon'));
     }
+
     public function save_general_setting(Request $req){
         $req->validate([
             'site_name'         => 'required',
             'site_url'          => 'required',
         ]);
-
         if($req->has('logo') && $req->file('logo') != null){
             $image = $req->file('logo');
-            $destinationPath = 'public/settings/';
+            $destinationPath = public_path('settings/');
             $rand=rand(1,100);
             $docImage = date('YmdHis'). $rand."." . $image->getClientOriginalExtension();
             $image->move($destinationPath, $docImage);
@@ -51,14 +54,18 @@ class SettingController extends Controller
         }
         if($req->has('favicon') && $req->file('favicon') != null){
             $image1 = $req->file('favicon');
-            $destinationPath1 = 'public/settings/';
-            $rand1=rand(1,100);
-            $docImage1 = date('YmdHis').$rand1."." . $image1->getClientOriginalExtension();
+            $destinationPath1 = public_path('settings/');
+            if (!file_exists($destinationPath1)) {
+                mkdir($destinationPath1, 0755, true);
+            }
+            $rand1 = rand(1,100);
+            $docImage1 = date('YmdHis').$rand1.".".$image1->getClientOriginalExtension();
             $image1->move($destinationPath1, $docImage1);
-            $img1=$docImage1;
-        }else{
-            $img1=$req->uploded_favicon;
+            $img1 = $docImage1;
+        } else {
+            $img1 = $req->uploaded_favicon;
         }
+
         $setting = Setting::first();
         $setting->site_name             = $req->site_name;
         $setting->site_url              = $req->site_url;
@@ -74,14 +81,7 @@ class SettingController extends Controller
         $log->log       = 'General Settings Updated';
         $log->save();
 
-        // $path = base_path('.env');
-        // $key = 'APP_TIMEZONE';
-        // if (file_exists($path)) {
-        //     file_put_contents($path, str_replace(
-        //         $key . '=' . env($key), $key . '=' . $req->timezone, file_get_contents($path)
-        //     ));
-        // }
-        return redirect()->route('general.setting');
+        return redirect()->route('admin.general_setting');
     }
     public function save_company_setting(Request $req){
         $req->validate([
@@ -110,7 +110,7 @@ class SettingController extends Controller
         $log->log       = 'Company Settings Updated';
         $log->save();
 
-        return redirect()->route('company.setting');
+        return redirect()->route('admin.company_settings');
     }
     public function save_email_setting(Request $req){
         $req->validate([
@@ -144,7 +144,7 @@ class SettingController extends Controller
         $log->module    = 'Settings';
         $log->log       = 'Email Settings Updated';
         $log->save();
-        return redirect()->route('email.setting');
+        return redirect()->route('admin.email_setting');
     }
 
     public function getUserById(Request $req){

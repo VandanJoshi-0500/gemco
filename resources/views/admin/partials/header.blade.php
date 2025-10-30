@@ -1,45 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="96x96" href="{{ url('frontend/Assets/smalllogo.png') }}">
     <title>Gemco</title>
-    <link rel="icon" type="image/x-icon" href="#">
-    <link rel="stylesheet" href="{{url('/')}}/assets1/sweetalert/sweetalert.min.css">
+    <link rel="stylesheet" href="{{ url('/') }}/assets1/sweetalert/sweetalert.min.css">
 
     <!-- Daterangepicker css -->
-    <link rel="stylesheet" href="{{url('/')}}/assets/vendor/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" href="{{ url('/') }}/assets/vendor/daterangepicker/daterangepicker.css">
 
     <!-- Vector Map css -->
-    <link rel="stylesheet" href="{{url('/')}}/assets/vendor/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css">
+    <link rel="stylesheet"
+        href="{{ url('/') }}/assets/vendor/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css">
 
     <!-- Theme Config Js -->
-    <script src="{{url('/')}}/assets/js/config.js"></script>
+    <script src="{{ url('/') }}/assets/js/config.js"></script>
 
     <!-- App css -->
-    <link href="{{url('/')}}/assets/css/app.min.css" rel="stylesheet" type="text/css" id="app-style" />
+    <link href="{{ url('/') }}/assets/css/app.min.css" rel="stylesheet" type="text/css" id="app-style" />
 
     <!-- Icons css -->
-    <link href="{{url('/')}}/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{ url('/') }}/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
 
     <!-- Datatables css -->
-    <link href="{{url('/')}}/assets/vendor/datatables.net-bs5/css/dataTables.bootstrap5.min.css" rel="stylesheet" type="text/css" />
-    <link href="{{url('/')}}/assets/vendor/datatables.net-responsive-bs5/css/responsive.bootstrap5.min.css" rel="stylesheet"
+    <link href="{{ url('/') }}/assets/vendor/datatables.net-bs5/css/dataTables.bootstrap5.min.css" rel="stylesheet"
         type="text/css" />
-    <link href="{{url('/')}}/assets/vendor/datatables.net-fixedcolumns-bs5/css/fixedColumns.bootstrap5.min.css" rel="stylesheet"
-        type="text/css" />
-    <link href="{{url('/')}}/assets/vendor/datatables.net-fixedheader-bs5/css/fixedHeader.bootstrap5.min.css" rel="stylesheet"
-        type="text/css" />
-    <link href="{{url('/')}}/assets/vendor/datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css" rel="stylesheet"
-        type="text/css" />
-    <link href="{{url('/')}}/assets/vendor/datatables.net-select-bs5/css/select.bootstrap5.min.css" rel="stylesheet"
-        type="text/css" />
+    <link href="{{ url('/') }}/assets/vendor/datatables.net-responsive-bs5/css/responsive.bootstrap5.min.css"
+        rel="stylesheet" type="text/css" />
+    <link href="{{ url('/') }}/assets/vendor/datatables.net-fixedcolumns-bs5/css/fixedColumns.bootstrap5.min.css"
+        rel="stylesheet" type="text/css" />
+    <link href="{{ url('/') }}/assets/vendor/datatables.net-fixedheader-bs5/css/fixedHeader.bootstrap5.min.css"
+        rel="stylesheet" type="text/css" />
+    <link href="{{ url('/') }}/assets/vendor/datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css"
+        rel="stylesheet" type="text/css" />
+    <link href="{{ url('/') }}/assets/vendor/datatables.net-select-bs5/css/select.bootstrap5.min.css"
+        rel="stylesheet" type="text/css" />
 
-    <script src="{{url('/')}}/assets1/JS/3.5.1_jquery.min.js" charset="utf-8"></script>
+    <script src="{{ url('/') }}/assets1/JS/3.5.1_jquery.min.js" charset="utf-8"></script>
 
     @yield('style')
 </head>
+
 <body>
     <div class="wrapper">
         <div class="navbar-custom">
@@ -49,22 +53,22 @@
                     <!-- Topbar Brand Logo -->
                     <div class="logo-topbar">
                         <!-- Logo light -->
-                        <a href="{{route('admin.dashboard')}}" class="logo-light">
+                        <a href="{{ route('admin.dashboard') }}" class="logo-light">
                             <span class="logo-lg">
-                                <img src="{{url('frontend/Assets/whitelogo.png')}}" alt="logo">
+                                <img src="{{ url('frontend/images/biglogowhite.png') }}" alt="logo">
                             </span>
                             <span class="logo-sm">
-                                <img src="{{url('frontend/Assets/whitelogo.png')}}" alt="small logo">
+                                <img src="{{ url('frontend/images/smalllogowhite.png') }}" alt="small logo">
                             </span>
                         </a>
 
                         <!-- Logo Dark -->
-                        <a href="#" class="logo-dark">
+                        <a href="{{ route('admin.dashboard') }}" class="logo-dark">
                             <span class="logo-lg">
-                                <img src="#" alt="dark logo">
+                                <img src="{{ url('frontend/images/biglogowhite.png') }}" alt="dark logo">
                             </span>
                             <span class="logo-sm">
-                                <img src="#" alt="small logo">
+                                <img src="{{ url('frontend/images/smalllogowhite.png') }}" alt="small logo">
                             </span>
                         </a>
                     </div>
@@ -187,36 +191,52 @@
                     </li>
 
                     <li class="dropdown">
-                        <a class="nav-link dropdown-toggle arrow-none nav-user" data-bs-toggle="dropdown" href="#" role="button"
-                            aria-haspopup="false" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle arrow-none nav-user" data-bs-toggle="dropdown" href="#"
+                            role="button" aria-haspopup="false" aria-expanded="false">
+
+
+                            @php
+                                $profileImage = Auth::user()->image;
+                                $imagePath =
+                                    !empty($profileImage) && file_exists(public_path('settings/' . $profileImage))
+                                        ? asset('settings/' . $profileImage)
+                                        : asset('assets/user-profile.png'); // fallback/default image
+                            @endphp
+
+                            {{-- <span class="account-user-avatar">
+                                <img src="{{ url('/') }}/assets/images/users/avatar-6.jpg" alt="user-image"
+                                    width="40" height="40" class="rounded-circle ">
+                            </span> --}}
+
                             <span class="account-user-avatar">
-                                <img src="{{url('/')}}/assets/images/users/avatar-6.jpg" alt="user-image" width="32" class="rounded-circle">
+                                <img src="{{ $imagePath }}" alt="user-image" width="40" height="40" class="rounded-circle object-fit-cover">
                             </span>
+
                             <span class="d-lg-block d-none">
-                                <h5 class="my-0 fw-normal">Admin<i
+                                <h5 class="my-0 fw-normal">{{ Auth::user()->name }}<i
                                         class="ri-arrow-down-s-line d-none d-sm-inline-block align-middle"></i></h5>
                             </span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated profile-dropdown">
                             <!-- item-->
                             <div class=" dropdown-header noti-title">
-                                <h6 class="text-overflow m-0">Welcome !</h6>
+                                <h6 class="text-overflow m-0">Welcome ! {{ Auth::user()->name }}</h6>
                             </div>
 
                             <!-- item-->
-                            <a href="{{route('admin.view.profile')}}" class="dropdown-item">
+                            <a href="{{ route('admin.view.profile') }}" class="dropdown-item">
                                 <i class="ri-account-circle-line fs-18 align-middle me-1"></i>
                                 <span>My Account</span>
                             </a>
 
                             <!-- item-->
-                            <a href="{{route('admin.settings')}}" class="dropdown-item">
+                            <a href="{{ route('admin.settings') }}" class="dropdown-item">
                                 <i class="ri-settings-4-line fs-18 align-middle me-1"></i>
                                 <span>Settings</span>
                             </a>
 
                             <!-- item-->
-                            <a href="{{route('logout')}}" class="dropdown-item">
+                            <a href="{{ route('logout') }}" class="dropdown-item">
                                 <i class="ri-logout-box-line fs-18 align-middle me-1"></i>
                                 <span>Logout</span>
                             </a>
@@ -292,4 +312,3 @@
                 </div>
             </div>
         </div> --}}
-

@@ -22,6 +22,7 @@ class CategoryController extends Controller
         $user = User::first();
         view()->share('setting', $setting);
     }
+    
     public function categories(){
         $categories = Category::orderBy('id','Desc')->get();
         $parent_categories = Category::where('parent','==',0)->orderBy('id','Desc')->get();
@@ -33,6 +34,7 @@ class CategoryController extends Controller
             return redirect()->route('admin');
         }
     }
+
     public function addCategoryData(Request $req){
         $req->validate([
             'name'                => 'required|unique:categories,name',
@@ -66,6 +68,12 @@ class CategoryController extends Controller
         }else{
             $status = 0;
         }
+        if($req->showindropdown == 'on'){
+            $showindropdown = 1;
+        }else{
+            $showindropdown = 0;
+        }
+        $showindropdown = $req->has('showindropdown') ? 1 : 0;
         $category = new Category();
         $category->name             = $req->name;
         $category->slug             = $req->slug;
@@ -80,6 +88,7 @@ class CategoryController extends Controller
         $category->keyword          = $req->keyword;
         $category->created_by       = Auth::user()->id;
         $category->status           = $status;
+        $category->showindropdown   = $showindropdown;
         $category->save();
 
         $user1 = User::where('id',Auth::user()->id)->first();
@@ -97,6 +106,7 @@ class CategoryController extends Controller
             return redirect()->route('admin');
         }
     }
+
     public function editCategory($id){
         $categories         = Category::orderBy('id','Desc')->get();
         $category           = Category::where('id',$id)->first();
@@ -141,6 +151,11 @@ class CategoryController extends Controller
         }else{
             $status = 0;
         }
+        if($req->showindropdown == 'on'){
+            $showindropdown = 1;
+        }else{
+            $showindropdown = 0;
+        }
         $category = Category::where('id',$req->category_id)->first();
         $category->name             = $req->name;
         $category->slug             = $req->slug;
@@ -154,6 +169,8 @@ class CategoryController extends Controller
         $category->meta_description = $req->meta_description;
         $category->keyword          = $req->keyword;
         $category->status           = $status;
+        $category->showindropdown   = $showindropdown;
+
         $category->save();
 
         $user1 = User::where('id',Auth::user()->id)->first();
@@ -170,9 +187,9 @@ class CategoryController extends Controller
         }else{
             return redirect()->route('admin');
         }
-
-
     }
+
+
     public function deleteCategory($id){
         $category = Category::where('id',$id)->first();
         $user1 = User::where('id',Auth::user()->id)->first();

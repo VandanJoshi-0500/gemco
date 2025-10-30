@@ -4,25 +4,7 @@
 @section('content')
 
     <!-- ..........ABOUT TITLE AND BREADCRUMPS.......... -->
-    <div class="container-fluid AboutTitleBreadCrumps">
-        <div class="row container bg-transparent">
-            <div class="col-12 text-center bg-transparent">
-                <h1 class=" bg-transparent">Jewellery</h1>
-            </div>
-            <div class="col-12 text-center mt-2 bg-transparent">
-                <nav aria-label="breadcrumb" class="bg-transparent">
-                    <ul class="breadcrumb justify-content-center bg-transparent">
-                        <li class="breadcrumb-item bg-transparent"><a href={{url('/home')}} class="bg-transparent text-dark">Home</a>
-                        </li>
-                        {{-- <li class="breadcrumb-item bg-transparent"><a href="#"
-                                class="bg-transparent text-dark">Pages</a>
-                        </li> --}}
-                        <li class="breadcrumb-item bg-transparent" aria-current="page">Jewellery</li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </div>
+    @include('frontend.components.dynamic-breadcrumb')
     <!-- ..........ABOUT TITLE AND BREADCRUMPS END.......... -->
 
 
